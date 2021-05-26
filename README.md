@@ -18,10 +18,14 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### Chakra resources: 
+
+[Creating a responsive navbar w/ Chakra](https://raptis.wtf/blog/create-a-navbar-with-chakra-ui-react/)
+
+### Next.js resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial (Jenny: Highly recommend trying the tutorial to understand the basics of Next.js)
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
