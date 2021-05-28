@@ -18,7 +18,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Chakra resources: 
 
-[Creating a responsive navbar w/ Chakra](https://raptis.wtf/blog/create-a-navbar-with-chakra-ui-react/)
+- [Creating a responsive navbar w/ Chakra](https://raptis.wtf/blog/create-a-navbar-with-chakra-ui-react/)
+- [Chakra Style Props](https://chakra-ui.com/docs/features/style-props) List of Chakra component props and the corresponding CSS properties (I always have this open when adding styles like margin, padding etc)
 
 ### Next.js resources:
 
