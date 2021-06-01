@@ -5,7 +5,8 @@ import {
   Text,
   Flex,
   Stack,
-  Box
+  Box,
+  SimpleGrid
 } from '@chakra-ui/react'
 
 import AboutCard from '../components/AboutCard'
@@ -54,7 +55,13 @@ export default function About() {
                 borderBottom="4px solid #E5E5E5">
                   Meet the team
               </Heading>
-              <AboutCard></AboutCard>
+              <SimpleGrid columns={[1, null, 2]} spacing={10}> 
+                <AboutCard imgSrc="/assets/Avatar5.png" name="Ron Handley"/>
+                <AboutCard imgSrc="/assets/Avatar4.png" name="Aleksui Riabtsev"/>
+                <AboutCard imgSrc="/assets/Avatar3.png" name="Raied Siddiqui"/>
+                <AboutCard imgSrc="/assets/Avatar.png" name="Jessie Lam"/>
+                <AboutCard imgSrc="/assets/Avatar2.png" name="Jenny Zhang"/>
+              </SimpleGrid>
             </Box>
         </Stack>
         <footer>
