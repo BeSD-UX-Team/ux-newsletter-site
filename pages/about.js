@@ -52,7 +52,7 @@ export default function About() {
                 mb={4} 
                 pb={4} 
                 borderBottom="4px solid #E5E5E5">
-                  What we do
+                  Meet the team
               </Heading>
               <AboutCard></AboutCard>
             </Box>
