@@ -55,7 +55,7 @@ export default function About() {
                 borderBottom="4px solid #E5E5E5">
                   Meet the team
               </Heading>
-              <SimpleGrid columns={[1, null, 2]} spacing={10}> 
+              <SimpleGrid columns={[1, null, 2]} spacing={12} p={4}> 
                 <AboutCard imgSrc="/assets/Avatar5.png" name="Ron Handley"/>
                 <AboutCard imgSrc="/assets/Avatar4.png" name="Aleksui Riabtsev"/>
                 <AboutCard imgSrc="/assets/Avatar3.png" name="Raied Siddiqui"/>
