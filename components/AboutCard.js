@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Flex, Image, Text, Heading} from "@chakra-ui/react"
+import { Flex, Image, Text, Heading } from "@chakra-ui/react"
 
 export default function AboutCard({imgSrc, name, position, message, ...props}) {
   return (
