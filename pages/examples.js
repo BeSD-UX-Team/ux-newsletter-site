@@ -3,14 +3,17 @@ import {
   Heading,
   Flex,
   Stack,
+  HStack,
   Text, 
   Image
 } from '@chakra-ui/react'
 
 import Wrapper from '../components/Wrapper'
 import Container from '../components/Container'
+import NumIcon from '../components/NumIcon'
+import ArticleContainer from '../components/ArticleContainer'
 
-export default function About() {
+export default function Examples() {
     return (
 
       <Container>
@@ -32,9 +35,15 @@ export default function About() {
             <Wrapper description="Before">
               <Image src="/assets/map.png" />
             </Wrapper>
-            <Wrapper description="After" width={["100%", "640px", "640px"]}>
+            <Wrapper description="After" width={["100%", "100%", "640px"]}>
               <Image src="/assets/map2.png" />
             </Wrapper>
+            <HStack>
+              <NumIcon value="2"/> <NumIcon value="4" variant="dark"/> 
+            </HStack>
+
+            <ArticleContainer title="Article Container"/>
+
         </Stack>
         
       </Container>
