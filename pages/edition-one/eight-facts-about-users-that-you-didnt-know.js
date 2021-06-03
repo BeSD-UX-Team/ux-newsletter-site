@@ -22,7 +22,8 @@ export default function Article() {
                 <Text>...secrets told from a UX desgner</Text>
                 <Stack
                     direction={["column", "row"]}
-                    spacing={16}
+                    spacing={[8, 16]}
+                    m="0 20px 0 0"
                 >
                     <List 
                     as="ol" 
@@ -37,7 +38,7 @@ export default function Article() {
                                 spacing={4}>
                                     <NumIcon value={i + 1}/>
                                     <Heading
-                                        size="lg">
+                                        size="md">
                                         {fact}
                                     </Heading>
                                     <Text>
@@ -96,8 +97,13 @@ const data = [
 
 const externalResources = [
     { 
-        url: 'https://google.ca',
+        url: 'https://google.com',
         source: 'Google',
         title: "Google Home"
+    },
+    { 
+        url: 'https://google.ca',
+        source: 'Google',
+        title: "Google Home Canada"
     }
 ]

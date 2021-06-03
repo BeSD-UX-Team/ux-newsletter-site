@@ -17,7 +17,8 @@ const Container = ({ children }) => {
         <>
             <NavBar/>
             <Flex
-                m="0 20px 4rem 20px"
+                mb="4rem"
+                mx={["6%", "8%"]}
                 justifyContent="center"
                 flexDirection="column"
                 bg={bgColor[colorMode]}
@@ -31,10 +32,3 @@ const Container = ({ children }) => {
 }
 
 export default Container;
-
-{/* <Stack
-          as="main"
-          spacing={8}
-          justifyContent="center"
-          alignItems="flex-start"
-          m="0 20px 4rem 20px"></Stack> */}

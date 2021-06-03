@@ -1,3 +1,4 @@
+import { AppProps } from 'next/app'
 import { ChakraProvider, useColorMode } from "@chakra-ui/react"
 import { Global, css } from '@emotion/react'
 
@@ -34,7 +35,7 @@ const GlobalStyle = ({ children }) => {
   )
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <GlobalStyle>

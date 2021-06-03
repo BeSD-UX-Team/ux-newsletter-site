@@ -15,7 +15,7 @@ export default function ArticleComtainer({ title, children, ...props }) {
                 spacing={6}
                 justifyContent="center"
                 alignItems="flex-start"
-                m="0 20px 0 20px">
+                m="0 1rem 0 1rem">
                 { children }
             </Stack>
         </Box>

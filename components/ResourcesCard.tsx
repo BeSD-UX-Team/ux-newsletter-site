@@ -8,11 +8,15 @@ export default function ResourcesCard({ resources, ...props }) {
 
     return (
         <Box
+         minWidth="200px"
          maxWidth="320px"
-         p={2}>
+         p={[0, 6]} 
+         border={["none", "1px solid #C4C4C4"]}
+         height="fit-content"
+         borderRadius="16px">
              <Stack
                 divider={<StackDivider borderColor="gray.200" />}
-                spacing={4}>
+                spacing={2}>
                     <Heading size="sm">
                         External Resources</Heading>
                     {
@@ -25,7 +29,9 @@ export default function ResourcesCard({ resources, ...props }) {
                                     fontWeight="semibold">
                                     {title} <ExternalLinkIcon/>
                                 </Link>
-                                <Text>
+                                <Text
+                                    mt={1}
+                                    fontSize="sm">
                                     {source}
                                 </Text>
                             </Box>

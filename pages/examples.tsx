@@ -39,10 +39,10 @@ export default function Examples() {
               <Image src="/assets/map2.png" />
             </Wrapper>
             <HStack>
-              <NumIcon value="2"/> <NumIcon value="4" variant="dark"/> 
+              <NumIcon value="2" variant="light"/> <NumIcon value="4" variant="dark"/> 
             </HStack>
 
-            <ArticleContainer title="Article Container"/>
+            <ArticleContainer title="Article Container">Hello world</ArticleContainer>
 
         </Stack>
         
