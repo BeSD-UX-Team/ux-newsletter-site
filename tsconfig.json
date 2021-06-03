@@ -21,8 +21,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/edition-one/eight-facts-about-users-that-you-didnt-know.js"  ],
+    "**/*.tsx" ],
   "exclude": [
     "node_modules"
   ]
