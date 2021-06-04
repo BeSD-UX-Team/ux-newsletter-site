@@ -1,17 +1,16 @@
-export interface ArticleConfig {
+export interface EditionConfig {
     edition: number;
-    introHeader: string;
-    introDetails: string;
-    sections: SectionConfig[];
+    publichDate: Date;
+    sections: ArticleConfig[];
+}
+
+export interface ArticleConfig {
+    heading: string;
+    subsections: SectionConfig[];
 }
 
 export interface SectionConfig {
-    heading: string;
-    subsections: SubsectionConfig[];
-}
-
-export interface SubsectionConfig {
-    heading: string;
+    heading?: string;
     subsectionElements: (Image | PShapeWrapper| OrderedList | ExternalArticles | string)[]
 }
 
@@ -20,9 +19,9 @@ export interface OrderedList {
 }
 
 export interface ListItem {
-    orderNumber: number;
+    variant: "light"|"dark";
     summary: string;
-    details: string;
+    details: (Image | PShapeWrapper| OrderedList | ExternalArticles | string)[];
 }
 
 export interface Image {
@@ -31,6 +30,7 @@ export interface Image {
 }
 
 export interface PShapeWrapper {
+    title: string;
     wrapperContent: (Image|string)[]
 }
 
@@ -45,11 +45,4 @@ export interface ExternalArticle {
     description?: string;
 }
 
-// They did this in story RAMP but I'm not sure why. Ask aleks
-// export enum SubsectionElementKind {
-//     Image = 'ImageGraphic',
-//     PShapeWrapper = 'PShapeWrapper',
-//     ArticleRecommendations = 'ArticleRecommendations',
-//     List = 'OrderedList'
-// }
 
