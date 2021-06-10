@@ -21,21 +21,22 @@ export default function ProjectCard({ name, img, to, ...props }) {
                 width='100%'
                 justifyContent='center'
             >
-                <Box
-                    p={2}
-                    w='160px'
-                    border='2px solid black'
-                    bg='white'
-                    textAlign='center'
-                    _hover={{
-                        // bg: 'gray.200',
-                        boxShadow: '-2px 4px 2px rgba(0, 0, 0, 0.25)',
-                    }}
-                >
-                    <Link href={to}>
+                <Link href={to}>
+                    <Box
+                        p={2}
+                        w='160px'
+                        border='2px solid black'
+                        bg='white'
+                        textAlign='center'
+                        fontWeight='semibold'
+                        _hover={{
+                            // bg: 'gray.200',
+                            boxShadow: '-2px 4px 2px rgba(0, 0, 0, 0.20)',
+                        }}
+                    >
                         <LinkOverlay>{name}</LinkOverlay>
-                    </Link>
-                </Box>
+                    </Box>
+                </Link>
             </Flex>
         </LinkBox>
     );
