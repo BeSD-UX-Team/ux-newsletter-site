@@ -38,11 +38,18 @@ export default function Examples() {
                     Hello world
                 </ArticleContainer>
 
-                <ProjectCard
-                    name='Project X'
-                    img={{ src: '/assets/map.png', alt: 'Image of Map' }}
-                    to='/about'
-                />
+                <HStack spacing={8}>
+                    <ProjectCard
+                        name='Project X'
+                        img={{ src: '/assets/map.png', alt: 'Image of Map' }}
+                        to='/about'
+                    />
+                    <ProjectCard
+                        name='Project Y'
+                        img={{ src: '/assets/map.png', alt: 'Image of Map' }}
+                        to='/about'
+                    />
+                </HStack>
             </Stack>
         </Container>
     );

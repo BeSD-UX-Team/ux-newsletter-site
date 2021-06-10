@@ -1,29 +1,40 @@
 import React from 'react';
 import { Flex, Image, Text, Box, LinkBox, LinkOverlay } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 export default function ProjectCard({ name, img, to, ...props }) {
     const { src, alt } = img;
     return (
-        <LinkBox w='100%' {...props}>
+        <LinkBox w='fit-content' {...props}>
+            <Box
+                w='300px'
+                h='300px'
+                bgImage={`url("${src}")`}
+                bgPosition='center'
+                bgRepeat='no-repeat'
+            />
+            {/* <Image w='300px' h='300px' src='/assets/map.png' /> */}
             <Flex
-                direction='column'
-                alignItems='center'
-                flexBasis='space-between'
-                maxW='320px'
-                width='fit-content'
+                position='absolute'
+                zIndex={2}
+                bottom={-4}
+                width='100%'
+                justifyContent='center'
             >
-                <Image w='100%' src={src} alt={alt} />
                 <Box
                     p={2}
                     w='160px'
                     border='2px solid black'
                     bg='white'
                     textAlign='center'
+                    _hover={{
+                        // bg: 'gray.200',
+                        boxShadow: '-2px 4px 2px rgba(0, 0, 0, 0.25)',
+                    }}
                 >
-                    <NextLink href={to}>
+                    <Link href={to}>
                         <LinkOverlay>{name}</LinkOverlay>
-                    </NextLink>
+                    </Link>
                 </Box>
             </Flex>
         </LinkBox>

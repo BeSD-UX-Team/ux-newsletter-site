@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import styled from '@emotion/styled';
 import { Flex, Button, Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
