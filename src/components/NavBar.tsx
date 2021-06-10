@@ -51,6 +51,7 @@ const NavBar = (props) => {
                 <Box>
                     <NavLink to='/' label='Home' />
                     <NavLink to='/about' label={t('pages.about')} />
+                    <NavLink to='/editions' label={t('pages.editions')} />
                     <NavLink to='/projects' label={t('pages.projects')} />
                     <NavLink to='/contact' label={t('pages.contact')} />
                     <NavLink to='/examples' label='Examples' />
