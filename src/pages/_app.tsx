@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import { ChakraProvider, useColorMode } from '@chakra-ui/react';
 import { Global, css } from '@emotion/react';
+import '../i18n/config';
 
 /* Not sure if this is best way to add global styles */
 const GlobalStyle = ({ children }) => {

@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import { Stack, Flex, Heading } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+
 import Container from '../components/Container';
 
 export default function Contact() {
+    const { t } = useTranslation();
+
     return (
         <Container>
             <Head>
@@ -21,7 +25,7 @@ export default function Contact() {
                 m='0 20px 4rem 20px'
             >
                 <Flex w='100%' justifyContent='center' alignItems='flex-start'>
-                    <Heading as='h1'>Contact us</Heading>
+                    <Heading as='h1'>{t('pages.contact')}</Heading>
                 </Flex>
             </Stack>
         </Container>

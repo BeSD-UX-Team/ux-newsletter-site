@@ -4,6 +4,7 @@ import { Flex, Button, Box, HStack } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import Logo from './Logo';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const NavLink = ({ to, label, ...props }) => {
     return (
@@ -39,13 +40,14 @@ export default function Footer(props) {
             >
                 <Box as='nav'>
                     <NavLink to='/' label='Home' ml={0} />
-                    <NavLink to='/about' label={t('about')} />
-                    <NavLink to='/projects' label={'Projects'} />
-                    <NavLink to='/contact' label='Contact Us' />
+                    <NavLink to='/about' label={t('pages.about')} />
+                    <NavLink to='/projects' label={t('pages.projects')} />
+                    <NavLink to='/contact' label={t('pages.contact')} />
                     <NavLink to='/examples' label='Examples' />
                 </Box>
-                <HStack w='100%' mt={4}>
+                <HStack w='100%' mt={4} spacing={12}>
                     <Logo />
+                    <LanguageSwitcher />
                 </HStack>
             </Flex>
         </Flex>

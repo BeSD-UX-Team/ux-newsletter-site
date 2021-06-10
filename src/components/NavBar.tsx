@@ -50,9 +50,9 @@ const NavBar = (props) => {
                 </Link>
                 <Box>
                     <NavLink to='/' label='Home' />
-                    <NavLink to='/about' label={t('about')} />
-                    <NavLink to='/projects' label={'Projects'} />
-                    <NavLink to='/contact' label='Contact Us' />
+                    <NavLink to='/about' label={t('pages.about')} />
+                    <NavLink to='/projects' label={t('pages.projects')} />
+                    <NavLink to='/contact' label={t('pages.contact')} />
                     <NavLink to='/examples' label='Examples' />
                 </Box>
             </NavContainer>

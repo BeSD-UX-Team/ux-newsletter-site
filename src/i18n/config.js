@@ -20,12 +20,20 @@ i18n
         resources: {
             en: {
                 translation: {
-                    about: 'About Us',
+                    pages: {
+                        about: 'About us',
+                        contact: 'Contact',
+                        projects: 'Our projects',
+                    },
                 },
             },
             fr: {
                 translation: {
-                    about: 'Qui sommes-nous?',
+                    pages: {
+                        about: 'Qui sommes-nous?',
+                        contact: 'Contact',
+                        projects: 'Nos projets',
+                    },
                 },
             },
         },

@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { Heading, Text, Flex, Stack } from '@chakra-ui/react';
 
 import Container from '../components/Container';
-import '../i18n/config';
 
 export default function Home() {
     const { t } = useTranslation();

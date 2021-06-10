@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import { Stack, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+
 import Container from '../components/Container';
 import ProjectCard from '../components/ProjectCard';
 
 export default function Projects() {
+    const { t } = useTranslation();
     return (
         <Container>
             <Head>
@@ -23,7 +26,7 @@ export default function Projects() {
                 maxWidth='1220px'
             >
                 <Flex w='100%' justifyContent='center' alignItems='flex-start'>
-                    <Heading as='h1'>Our projects</Heading>
+                    <Heading as='h1'>{t('pages.projects')}</Heading>
                 </Flex>
                 <SimpleGrid columns={3} spacing={10}>
                     <ProjectCard

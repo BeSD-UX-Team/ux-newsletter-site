@@ -1,12 +1,14 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Heading, Text, Flex, Stack, Box, SimpleGrid } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 import AboutCard from '../components/AboutCard';
 
 import Container from '../components/Container';
 
 export default function About() {
+    const { t } = useTranslation();
     return (
         <Container>
             <Head>
@@ -21,7 +23,7 @@ export default function About() {
                 maxWidth='1200px'
             >
                 <Flex w='100%' justifyContent='center' alignItems='flex-start'>
-                    <Heading as='h1'>About us</Heading>
+                    <Heading as='h1'>{t('pages.about')}</Heading>
                 </Flex>
                 <Box w='100%'>
                     <Heading
