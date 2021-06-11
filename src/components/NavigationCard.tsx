@@ -12,7 +12,7 @@ export default function NavigationCard({
     return (
         <Box
             minWidth='200px'
-            maxWidth='400px'
+            maxWidth='420px'
             p={6}
             border={'2px solid black'}
             height='fit-content'
