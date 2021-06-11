@@ -34,7 +34,7 @@ i18n
                         about: 'Qui sommes-nous?',
                         contact: 'Contact',
                         projects: 'Nos projets',
-                        editions: 'Les editions',
+                        editions: 'Les éditions',
                     },
                 },
             },
