@@ -8,6 +8,7 @@ import ArticleContainer from '../components/ArticleContainer';
 import ProjectCard from '../components/ProjectCard';
 import NavigationCard from '../components/NavigationCard';
 import ResourcesCard from '../components/ResourcesCard';
+import ArticleNavigationBar from '../components/ArticleNavigationBar';
 
 export default function Examples() {
     return (
@@ -59,6 +60,8 @@ export default function Examples() {
                     currArticle={'project-x'}
                 />
                 <ResourcesCard resources={mockResourcesData} />
+
+                <ArticleNavigationBar w='100%' />
             </Stack>
         </Container>
     );
