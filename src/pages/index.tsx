@@ -1,13 +1,14 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Heading, Text, Flex, Stack } from '@chakra-ui/react';
 
 import Container from '../components/Container';
 
 export default function Home() {
-    const { t } = useTranslation();
     return (
         <Container>
             <Head>
@@ -38,4 +39,12 @@ export default function Home() {
             </Stack>
         </Container>
     );
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['global'])),
+        },
+    };
 }

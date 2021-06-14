@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
 import { Flex, Button, Box } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import Logo from './Logo';
 
@@ -27,7 +28,7 @@ const NavLink = ({ to, label, ...props }) => {
 };
 
 const NavBar = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('global');
     const NavContainer = styled(Flex)`
         z-index: 10;
         top: 0;

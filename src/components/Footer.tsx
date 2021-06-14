@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import styled from '@emotion/styled';
 import { Flex, Button, Box, HStack } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -28,7 +28,7 @@ const NavLink = ({ to, label, ...props }) => {
 };
 
 export default function Footer(props) {
-    const { t } = useTranslation();
+    const { t } = useTranslation('global');
     return (
         <Flex justifyContent='center' bg='#E5E5E5' p={8}>
             <Flex
