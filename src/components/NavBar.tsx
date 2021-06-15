@@ -35,7 +35,6 @@ const NavBar = (props) => {
     return (
         <Flex width='100%' justifyContent='center'>
             <NavContainer
-                as='nav'
                 flexDirection='row'
                 justifyContent='space-between'
                 alignItems='center'
@@ -46,7 +45,7 @@ const NavBar = (props) => {
                 bg='white'
             >
                 <Logo as='a' href='/' />
-                <Box>
+                <Box as='nav'>
                     <NavLink to='/' label='Home' />
                     <NavLink to='/about' label={t('pages.about')} />
                     <NavLink to='/editions' label={t('pages.editions')} />

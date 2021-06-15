@@ -1,8 +1,8 @@
 {
     "pages": {
+        "editions": "Les editions",
         "about": "Qui sommes-nous?",
-        "contact": "Contact",
-        "projects": "Nos projets",
-        "editions": "Les editions"
+        "contact": "Contactez nous",
+        "projects": "Nos projets"
     }
 }

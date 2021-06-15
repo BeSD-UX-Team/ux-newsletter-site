@@ -17,7 +17,7 @@ function ArticleList({ articles }) {
                 What's inside this issue?
             </Text>
             {articles.map((article) => (
-                <Text textDecorationLine='underline'>
+                <Text key={article.title} textDecorationLine='underline'>
                     <Link href={article.link}>{article.title}</Link>
                 </Text>
             ))}

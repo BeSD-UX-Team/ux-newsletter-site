@@ -38,7 +38,7 @@ export default function Contact() {
                 m='0 20px 4rem 20px'
             >
                 <Box w='100%' textAlign='center'>
-                    <Heading size='xl'> Contact Us</Heading>
+                    <Heading size='xl'>{t('pages.contact')}</Heading>
                 </Box>
                 <Box w='100%'>
                     <HStack w='100%' justify='center' flexWrap='wrap'>
