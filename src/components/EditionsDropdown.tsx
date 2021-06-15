@@ -15,7 +15,9 @@ function ArticleList({ articles }) {
         <Stack spacing={2}>
             <Text>What's inside this issue?</Text>
             {articles.map((article) => (
-                <Link href={article.link}>{article.title}</Link>
+                <Link key={article.title} href={article.link}>
+                    {article.title}
+                </Link>
             ))}
         </Stack>
     );
@@ -26,7 +28,7 @@ export default function EditionsDropdown({ editions }) {
         <Accordion defaultIndex={[0]} allowMultiple>
             {editions.map((edition) => {
                 return (
-                    <AccordionItem>
+                    <AccordionItem key={edition.num}>
                         <h2>
                             <AccordionButton>
                                 <Box flex='1' textAlign='left'>
