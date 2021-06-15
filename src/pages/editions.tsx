@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import { Stack, Flex, Heading, Box } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import Container from '../components/Container';
 import EditionsDropdown from '../components/EditionsDropdown';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const editionsData = [
     {
@@ -45,7 +46,7 @@ const editionsData = [
 ];
 
 export default function Editions() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('global');
     return (
         <Container>
             <Head>
@@ -74,4 +75,12 @@ export default function Editions() {
             </Stack>
         </Container>
     );
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['global'])),
+        },
+    };
 }

@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import { Stack, Flex, Heading } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import Container from '../components/Container';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Contact() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('global');
 
     return (
         <Container>
@@ -30,4 +31,12 @@ export default function Contact() {
             </Stack>
         </Container>
     );
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['global'])),
+        },
+    };
 }
