@@ -30,7 +30,7 @@ export default function EditionsDropdown({ editions }) {
         <Accordion allowMultiple allowToggle>
             {editions.map((edition) => {
                 return (
-                    <AccordionItem>
+                    <AccordionItem key={edition.num}>
                         <h2>
                             <AccordionButton
                                 _expanded={{
