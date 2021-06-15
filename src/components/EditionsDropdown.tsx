@@ -13,11 +13,13 @@ import Link from 'next/link';
 function ArticleList({ articles }) {
     return (
         <Stack spacing={2}>
-            <Text>What's inside this issue?</Text>
+            <Text color='#ADADAD' fontWeight='medium' fontStyle='italic'>
+                What's inside this issue?
+            </Text>
             {articles.map((article) => (
-                <Link key={article.title} href={article.link}>
-                    {article.title}
-                </Link>
+                <Text textDecorationLine='underline'>
+                    <Link href={article.link}>{article.title}</Link>
+                </Text>
             ))}
         </Stack>
     );
@@ -25,12 +27,18 @@ function ArticleList({ articles }) {
 
 export default function EditionsDropdown({ editions }) {
     return (
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion allowMultiple allowToggle>
             {editions.map((edition) => {
                 return (
                     <AccordionItem key={edition.num}>
                         <h2>
-                            <AccordionButton>
+                            <AccordionButton
+                                _expanded={{
+                                    bg: '#E5E5E5',
+                                    fontWeight: 'medium',
+                                }}
+                                _focus={{ outline: 'none', boxShadow: 'none' }}
+                            >
                                 <Box flex='1' textAlign='left'>
                                     {`Edition ${edition.num} - ${edition.date}`}
                                 </Box>

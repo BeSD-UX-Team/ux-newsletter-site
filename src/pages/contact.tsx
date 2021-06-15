@@ -1,6 +1,16 @@
 import Head from 'next/head';
-import { Stack, Flex, Heading } from '@chakra-ui/react';
+
 import { useTranslation } from 'next-i18next';
+import {
+    Stack,
+    Flex,
+    Heading,
+    Box,
+    Text,
+    Image,
+    HStack,
+    Center,
+} from '@chakra-ui/react';
 
 import Container from '../components/Container';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -26,8 +36,50 @@ export default function Contact() {
                 m='0 20px 4rem 20px'
             >
                 <Flex w='100%' justifyContent='center' alignItems='flex-start'>
-                    <Heading as='h1'>{t('pages.contact')}</Heading>
+                    <Heading size='xl'> Contact Us</Heading>
                 </Flex>
+                <Box w='100%'>
+                    <HStack w='100%' justify='center'>
+                        <Image
+                            src='/assets/Avatar5.png'
+                            alt='Ron Handley'
+                            boxSize='100px'
+                        />
+                        <Image
+                            src='/assets/Avatar4.png'
+                            alt='Aleksui Riabtsev'
+                            boxSize='100px'
+                        />
+                        <Image
+                            src='/assets/Avatar3.png'
+                            alt='Raied Siddiqui'
+                            boxSize='100px'
+                        />
+                        <Image
+                            src='/assets/Avatar.png'
+                            alt='Jessie Lam'
+                            boxSize='100px'
+                        />
+                        <Image
+                            src='/assets/Avatar2.png'
+                            alt='Jenny Zhang'
+                            boxSize='100px'
+                        />
+                    </HStack>
+
+                    <Heading size='lg' mt={7} pb={4} textAlign='center'>
+                        What we do
+                    </Heading>
+
+                    <Center>
+                        <Text width='60%' align='center'>
+                            Got an application you want to improve? Need
+                            opinions on your webpage? We got your back! We have
+                            a wonderful team of UX/UI humans who would love to
+                            help make your webpages intuitive and user-friendly.
+                        </Text>
+                    </Center>
+                </Box>
             </Stack>
         </Container>
     );
