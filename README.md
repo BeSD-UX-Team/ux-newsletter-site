@@ -20,7 +20,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - [Creating a responsive navbar w/ Chakra](https://raptis.wtf/blog/create-a-navbar-with-chakra-ui-react/)
 - [Chakra Style Props](https://chakra-ui.com/docs/features/style-props) - this is a list of Chakra component props and the corresponding CSS properties (I always have this open when adding styles like margin, padding etc)
-- [Drag and drop Chakra UI editor](https://github.com/premieroctet/openchakra)
+- [Open Chakra - Drag and drop Chakra UI editor](https://github.com/premieroctet/openchakra)
 
 ### Next.js resources:
 
