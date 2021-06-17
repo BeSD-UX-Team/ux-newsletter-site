@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Flex, Button, Box, HStack } from '@chakra-ui/react';
-// import { useTranslation } from 'react-i18next';
 import { useTranslation } from 'next-i18next';
 
 import Logo from './Logo';

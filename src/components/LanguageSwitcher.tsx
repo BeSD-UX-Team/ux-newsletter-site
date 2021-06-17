@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { useTranslation } from 'next-i18next';
 import { Button, Stack } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 export default function LanguageSwitcher() {
     const router = useRouter();
-    const { t } = useTranslation('global');
     const LangButton = styled(Button)`
         border-radius: 0;
     `;

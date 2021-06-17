@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Heading, Box, Stack } from '@chakra-ui/react';
 
-export default function ArticleComtainer({ title, children, ...props }) {
+interface ArticleContainerProps {
+    title: string;
+    children: ReactNode;
+}
+
+export default function ArticleContainer({
+    title,
+    children,
+    ...props
+}: ArticleContainerProps) {
     return (
         <Box w='100%' {...props}>
             <Heading as='h1' mb={4} pb={4} borderBottom='8px solid #E5E5E5'>
