@@ -31,12 +31,12 @@ export default function Projects() {
                 </Flex>
                 <SimpleGrid columns={3} spacing={10}>
                     <ProjectCard
-                        name='Project X'
+                        projectName='Project X'
                         img={{ src: '/assets/map.png', alt: 'Image of Map' }}
                         to='/about'
                     />
                     <ProjectCard
-                        name='Project Y'
+                        projectName='Project Y'
                         img={{ src: '/assets/map.png', alt: 'Image of Map' }}
                         to='/about'
                     />

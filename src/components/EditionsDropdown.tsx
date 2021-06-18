@@ -32,11 +32,16 @@ function ArticleList({ articles }: ArticleListProps) {
                     as={Link}
                     href={`/${article.slug}`}
                     key={article.title}
-                    _hover={{
-                        fontWeight: 'bold',
-                    }}
                 >
-                    {article.title}
+                    <Text
+                        as='a'
+                        _hover={{
+                            textDecoration: 'underline',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        {article.title}
+                    </Text>
                 </ChakraLink>
             ))}
         </Stack>

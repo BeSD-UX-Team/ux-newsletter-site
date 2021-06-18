@@ -33,7 +33,6 @@ export default function NavBar(props) {
 
     return (
         <Box as='nav'>
-            <NavLink to='/' label='Home' />
             <NavLink to='/about' label={t('pages.about')} />
             <NavLink to='/editions' label={t('pages.editions')} />
             <NavLink to='/projects' label={t('pages.projects')} />

@@ -12,16 +12,19 @@ const editionsData = [
         date: 'June 2021',
         articles: [
             {
+                editionNum: 1,
                 title: 'What are you losing out on without UX?',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 1,
                 title: 'How we transformed Project X',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 1,
                 title: 'Facts you should know about users',
-                link: '/',
+                slug: 'some-article',
             },
         ],
     },
@@ -30,16 +33,19 @@ const editionsData = [
         date: 'Sept 2021',
         articles: [
             {
+                editionNum: 2,
                 title: 'What are you losing out on without UX?',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 2,
                 title: 'How we transformed Project X',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 2,
                 title: 'Facts you should know about users',
-                link: '/',
+                slug: 'some-article',
             },
         ],
     },

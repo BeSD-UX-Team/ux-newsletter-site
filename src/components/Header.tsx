@@ -21,7 +21,7 @@ export default function Header(props) {
                 mx={12}
                 bg='white'
             >
-                <Logo as='a' href='/' />
+                <Logo as='a' href='/editions' />
                 <NavBar />
             </NavContainer>
         </Flex>

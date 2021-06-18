@@ -1,0 +1,35 @@
+{
+    "editionNum": 1,
+    "datePublished": "Jan 12, 2021",
+    "articles": [
+        {
+            "title": "Hello World",
+            "content": [
+                {
+                    "type": "special-list-item",
+                    "value": 1,
+                    "body": "Here is where the markdown goes..."
+                },
+                {
+                    "type": "special-list-item",
+                    "value": 2,
+                    "body": "Here is where the markdown goes..."
+                },
+                {
+                    "type": "wrapper-item",
+                    "title": "Before",
+                    "body": "This is where the markdown goes..."
+                },
+                {
+                    "type": "wrapper-item",
+                    "title": "After",
+                    "body": "This is where the markdown goes..."
+                },
+                {
+                    "type": "normal",
+                    "body": "This is where the markdown goes..."
+                }
+            ]
+        }
+    ]
+}

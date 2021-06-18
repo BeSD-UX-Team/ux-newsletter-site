@@ -38,8 +38,7 @@ export default function Footer(props) {
                 width='72vw'
             >
                 <Box as='nav'>
-                    <NavLink to='/' label='Home' ml={0} />
-                    <NavLink to='/about' label={t('pages.about')} />
+                    <NavLink to='/about' label={t('pages.about')} ml={0} />
                     <NavLink to='/projects' label={t('pages.projects')} />
                     <NavLink to='/contact' label={t('pages.contact')} />
                     <NavLink to='/examples' label='Examples' />
