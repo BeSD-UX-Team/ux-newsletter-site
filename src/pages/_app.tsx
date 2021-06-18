@@ -1,3 +1,4 @@
+import { appWithTranslation } from 'next-i18next';
 import { AppProps } from 'next/app';
 import { ChakraProvider, useColorMode } from '@chakra-ui/react';
 import { Global, css } from '@emotion/react';
@@ -47,4 +48,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

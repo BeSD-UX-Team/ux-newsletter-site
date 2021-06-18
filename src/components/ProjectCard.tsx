@@ -1,19 +1,28 @@
 import React from 'react';
-import { Flex, Image, Text, Box, LinkBox, LinkOverlay } from '@chakra-ui/react';
+import { Flex, Box, Image, LinkBox, LinkOverlay } from '@chakra-ui/react';
 import Link from 'next/link';
 
-export default function ProjectCard({ name, img, to, ...props }) {
-    const { src, alt } = img;
+interface ProjectCardProps {
+    projectName: string;
+    img: {
+        src: string;
+        alt: string;
+    };
+    to: string;
+}
+
+export default function ProjectCard({
+    projectName,
+    img,
+    to,
+    ...props
+}: ProjectCardProps) {
     return (
         <LinkBox w='fit-content' {...props}>
-            <Box
-                w='300px'
-                h='300px'
-                bgImage={`url("${src}")`}
-                bgPosition='center'
-                bgRepeat='no-repeat'
-            />
-            {/* <Image w='300px' h='300px' src='/assets/map.png' /> */}
+            <Box w='300px' h='300px' overflow='hidden'>
+                <Image h='100%' src='/assets/map.png' objectFit='cover' />
+            </Box>
+
             <Flex
                 position='absolute'
                 zIndex={2}
@@ -34,7 +43,7 @@ export default function ProjectCard({ name, img, to, ...props }) {
                             boxShadow: '-2px 4px 2px rgba(0, 0, 0, 0.20)',
                         }}
                     >
-                        <LinkOverlay>{name}</LinkOverlay>
+                        <LinkOverlay>{projectName}</LinkOverlay>
                     </Box>
                 </Link>
             </Flex>

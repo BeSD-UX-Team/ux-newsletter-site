@@ -1,12 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Heading, Text, Flex, Stack, Box, SimpleGrid } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 
 import AboutCard from '../components/AboutCard';
 
 import Container from '../components/Container';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function About() {
+    const { t } = useTranslation('global');
     return (
         <Container>
             <Head>
@@ -21,7 +24,7 @@ export default function About() {
                 maxWidth='1200px'
             >
                 <Flex w='100%' justifyContent='center' alignItems='flex-start'>
-                    <Heading as='h1'>About us</Heading>
+                    <Heading as='h1'>{t('pages.about')}</Heading>
                 </Flex>
                 <Box w='100%'>
                     <Heading
@@ -59,26 +62,39 @@ export default function About() {
                         <AboutCard
                             imgSrc='/assets/Avatar5.png'
                             name='Ron Handley'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar4.png'
                             name='Aleksui Riabtsev'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar3.png'
                             name='Raied Siddiqui'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar.png'
                             name='Jessie Lam'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar2.png'
                             name='Jenny Zhang'
+                            message='Hello world!'
                         />
                     </SimpleGrid>
                 </Box>
             </Stack>
         </Container>
     );
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['global'])),
+        },
+    };
 }

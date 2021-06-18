@@ -6,6 +6,9 @@ import Container from '../components/Container';
 import NumIcon from '../components/NumIcon';
 import ArticleContainer from '../components/ArticleContainer';
 import ProjectCard from '../components/ProjectCard';
+import NavigationCard from '../components/NavigationCard';
+import ResourcesCard from '../components/ResourcesCard';
+import ArticleNavigationBar from '../components/ArticleNavigationBar';
 
 export default function Examples() {
     return (
@@ -50,7 +53,39 @@ export default function Examples() {
                         to='/about'
                     />
                 </HStack>
+
+                <NavigationCard
+                    editionNum={1}
+                    articles={mockArticleData}
+                    currArticle={'project-x'}
+                />
+                <ResourcesCard resources={mockResourcesData} />
+
+                <ArticleNavigationBar w='100%' />
             </Stack>
         </Container>
     );
 }
+
+const mockArticleData = [
+    {
+        title: 'What are you losing out on without UX?',
+        slug: 'what-are-you-losing-without-UX',
+    },
+    {
+        title: 'How we transformed Project X',
+        slug: 'project-x',
+    },
+    {
+        title: 'Facts you should know about users',
+        slug: 'facts-about-users',
+    },
+];
+
+const mockResourcesData = [
+    {
+        url: 'https://google.com',
+        title: 'Google Home',
+        source: 'Google',
+    },
+];
