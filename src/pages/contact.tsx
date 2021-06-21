@@ -1,14 +1,87 @@
 import Head from 'next/head';
-import { Stack, Heading, Box, Text, Image, HStack, Center, Input, Textarea, Flex, Button} from '@chakra-ui/react';
+import React, {useState} from 'react';
+import { Stack, Heading, Box, Text, Image, HStack, Center, Input, Textarea, Flex, Button, Alert, AlertIcon} from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import Container from '../components/Container';
 
 export default function Contact() {
     const { t } = useTranslation();
+    const [sendStatus, setSendStatus] = useState("notAttempted")
+    // text to send to the backend 
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [message, setMessage] = useState("")
+
+    // function that handles the sending of the email
+    const handleSend = async()=> {
+        if (!validEmail() || message == "" || name == "") {
+            setSendStatus("inputError")
+        } else {
+            try {
+                // would add api call here before setSendStatus
+                setSendStatus("success")
+            } catch (error) {
+                console.log(error)
+                setSendStatus("error")
+            }
+        }
+    }
+
+    const validEmail = () => {
+        //regex source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+        if (email == "") {
+            return false;
+        }
+        var emailRegex = /\S+@\S+\.\S+/;
+        return emailRegex.test(email);
+    }
+    
+    const renderInputError = () => {
+        if (name == "" || email == "" || message == "") {
+            return "Your email has not yet been sent out. Please fill in all fields!";
+        } else {
+            //regex source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+            var emailRegex = /\S+@\S+\.\S+/;
+            if (!emailRegex.test(email)) {
+                return "Your email has not yet been sent out. Please enter a valid email address in the form of example@example.example"
+            }
+        }
+    }
+
+    const sendStatusFeedback = () => {
+        if (sendStatus == "inputError") {
+            return (            
+                <Alert margin="auto" maxWidth="500px" minWidth="300px" marginTop="30px" status="warning"> 
+                <AlertIcon />
+                {renderInputError()}
+                
+                </Alert>
+            )     
+        }
+        else if (sendStatus == "success") {
+            return (            
+                <Alert margin="auto" maxWidth="500px" minWidth="300px" marginTop="30px" status="success"> 
+                <AlertIcon />
+                We have received your message!
+                Thank you for contacting BeSD UI/UX. We will get back to you as soon as possible.
+                
+                </Alert>
+            )                        
+        } else if (sendStatus == "systemError") {
+            return (
+                <Alert margin="auto" maxWidth="500px" minWidth="300px" marginTop="30px" status="error"> 
+                <AlertIcon />
+                Your message could not be sent due to an unexpected error. We apologize for the inconvenience. Please try again later or send an email to besduiux@ec.gc.ca directly.  
+                </Alert> 
+            )
+        } 
+    }
 
     return (
         <Container>
+            {console.log(sendStatus)}
+            {console.log(validEmail())}
             <Head>
                 <title>Contact Us</title>
                 <meta
@@ -54,9 +127,8 @@ export default function Contact() {
                         </Text>
                     </Center>
                 </Box>
-
                 <Box width="100%">
-                    <Flex position="relative" backgroundColor="#E5E5E5" margin="auto" maxWidth="500px" minWidth="300px" height="400px" justifyContent="center" flexWrap="wrap" marginTop="40px">
+                    <Flex position="relative" backgroundColor="#E5E5E5" margin="auto" maxWidth="500px" minWidth="300px" height="470px" justifyContent="center" flexWrap="wrap" marginTop="40px">
                         <Flex position="absolute" top="-7" justifyContent="center" flexWrap="wrap" width="100%"> 
                             <svg width="104" height="64" viewBox="0 0 104 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="path-1-inside-1" fill="white">
@@ -68,13 +140,14 @@ export default function Contact() {
                             <path d="M101 61L65 29" stroke="black" stroke-width="3.5"/>
                             </svg>
                         </Flex>
-                        
-                        <Input placeholder="Email" borderBottom="1px solid #747474" borderRadius="0" mt="50px" width="80%"/>
-                        <Textarea placeholder="Message" borderBottom="1px solid #747474" borderRadius="0" height="45%" width="80%" resize="none"/>
-                        <Flex width="100%" justifyContent="center" flexWrap="wrap">
-                            <Button backgroundColor="black" color="#EEEDED" size="md" _hover={{backgroundColor:"black", color:"#EEEDED"}}> EMAIL US </Button>
-                        </Flex>
+                            <Input placeholder="Name" borderBottom="1px solid #747474" borderRadius="0" mt="50px" width="80%" onChange={(e) => {setName(e.target.value); setSendStatus("notAttempted");}}/>
+                            <Input placeholder="Email" borderBottom="1px solid #747474" borderRadius="0"  width="80%" onChange={(e) => {setEmail(e.target.value); setSendStatus("notAttempted");}}/>
+                            <Textarea placeholder="Message" borderBottom="1px solid #747474" borderRadius="0" height="45%" width="80%" resize="none" onChange={(e) => {setMessage(e.target.value); setSendStatus("notAttempted");}}/>
+                            <Flex width="100%" justifyContent="center" flexWrap="wrap">
+                                <Button backgroundColor="black" color="#EEEDED" size="md" _hover={{backgroundColor:"black", color:"#EEEDED"}} type="submit" onClick={handleSend}> EMAIL US </Button>
+                            </Flex>
                     </Flex>
+                    {sendStatusFeedback()}
                 </Box>
             </Stack>
         </Container>
