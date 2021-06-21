@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import { Stack, Heading, Box } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { Stack, Flex, Heading, Box } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 
 import Container from '../components/Container';
 import EditionsDropdown from '../components/EditionsDropdown';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const editionsData = [
     {
@@ -11,16 +12,19 @@ const editionsData = [
         date: 'June 2021',
         articles: [
             {
+                editionNum: 1,
                 title: 'What are you losing out on without UX?',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 1,
                 title: 'How we transformed Project X',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 1,
                 title: 'Facts you should know about users',
-                link: '/',
+                slug: 'some-article',
             },
         ],
     },
@@ -29,23 +33,26 @@ const editionsData = [
         date: 'Sept 2021',
         articles: [
             {
+                editionNum: 2,
                 title: 'What are you losing out on without UX?',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 2,
                 title: 'How we transformed Project X',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 2,
                 title: 'Facts you should know about users',
-                link: '/',
+                slug: 'some-article',
             },
         ],
     },
 ];
 
 export default function Editions() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('global');
     return (
         <Container>
             <Head>
@@ -74,4 +81,12 @@ export default function Editions() {
             </Stack>
         </Container>
     );
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['global'])),
+        },
+    };
 }

@@ -9,9 +9,20 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
-// resources = [ { url, title, source }]
+type Resource = {
+    url: string;
+    title: string;
+    source: string;
+};
 
-export default function ResourcesCard({ resources, ...props }) {
+interface ResourcesCardProps {
+    resources: Resource[];
+}
+
+export default function ResourcesCard({
+    resources,
+    ...props
+}: ResourcesCardProps) {
     return (
         <Box
             minWidth='200px'

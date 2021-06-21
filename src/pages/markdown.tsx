@@ -9,6 +9,7 @@ import {
     OrderedList,
     ListItem,
     UnorderedList,
+    Stack,
 } from '@chakra-ui/react';
 
 export default function MarkdownExample() {
@@ -36,10 +37,10 @@ export default function MarkdownExample() {
 
 ## Here is a list:
 
-* Thing 1\n
-But there is a lot more to be said in this body
-* Thing 2
-* Thing 3
+1. # Thing 1\n
+    But there is a lot more to be said in this body
+2. Thing 2
+3. Thing 3
 `;
 
     const components = {
@@ -55,7 +56,18 @@ But there is a lot more to be said in this body
             <Head>
                 <title>Markdown</title>
             </Head>
-            <ReactMarkdown components={components}>{markdown}</ReactMarkdown>
+            <Stack
+                as='main'
+                spacing={8}
+                justifyContent='center'
+                alignItems='flex-start'
+                m='0 auto 4rem auto'
+                maxWidth='1000px'
+            >
+                <ReactMarkdown components={components}>
+                    {markdown}
+                </ReactMarkdown>
+            </Stack>
         </Container>
     );
 }

@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Heading, Text, Flex, Stack } from '@chakra-ui/react';
 
 import Container from '../components/Container';
+import ProjectCard from '../components/ProjectCard';
 
 export default function Home() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('global');
     return (
         <Container>
             <Head>
@@ -35,7 +37,20 @@ export default function Home() {
                     <Heading>Home</Heading>
                     <Text>Welcome to the home page!</Text>
                 </Flex>
+                <ProjectCard
+                    projectName='Project X'
+                    img={{ src: '', alt: '' }}
+                    to='/'
+                />
             </Stack>
         </Container>
     );
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['global'])),
+        },
+    };
 }

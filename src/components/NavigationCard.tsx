@@ -1,14 +1,19 @@
 import React from 'react';
 import { Box, Link, Text, Stack } from '@chakra-ui/react';
 
+import { ArticleMeta, Edition } from './types';
+
 // articles = [ { title, slug }]
+interface NavigationCardProps {
+    edition: Edition;
+    currArticle: ArticleMeta;
+}
 
 export default function NavigationCard({
-    editionNum,
-    articles,
+    edition,
     currArticle,
     ...props
-}) {
+}: NavigationCardProps) {
     return (
         <Box
             minWidth='200px'
@@ -19,17 +24,17 @@ export default function NavigationCard({
             {...props}
         >
             <Text mb={6} fontWeight='medium'>
-                {`Edition ${editionNum}: `}{' '}
+                {`Edition ${edition.num}: `}{' '}
                 <Text as='span' fontStyle='italic'>
                     What's inside this issue?
                 </Text>
             </Text>
 
             <Stack spacing={1}>
-                {articles.map(({ title, slug }) => {
+                {edition.articles.map(({ title, slug }) => {
                     return (
                         <Box>
-                            {currArticle === slug ? (
+                            {currArticle.slug === slug ? (
                                 <Text fontWeight='semibold'>{title}</Text>
                             ) : (
                                 <Link href={`/editions/${slug}`}>{title}</Link>

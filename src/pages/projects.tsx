@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import { Stack, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import Container from '../components/Container';
 import ProjectCard from '../components/ProjectCard';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Projects() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('global');
     return (
         <Container>
             <Head>
@@ -30,12 +31,12 @@ export default function Projects() {
                 </Flex>
                 <SimpleGrid columns={3} spacing={10}>
                     <ProjectCard
-                        name='Project X'
+                        projectName='Project X'
                         img={{ src: '/assets/map.png', alt: 'Image of Map' }}
                         to='/about'
                     />
                     <ProjectCard
-                        name='Project Y'
+                        projectName='Project Y'
                         img={{ src: '/assets/map.png', alt: 'Image of Map' }}
                         to='/about'
                     />
@@ -43,4 +44,12 @@ export default function Projects() {
             </Stack>
         </Container>
     );
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['global'])),
+        },
+    };
 }

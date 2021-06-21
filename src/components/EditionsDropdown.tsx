@@ -5,32 +5,55 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
+    Link as ChakraLink,
     Stack,
     Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 
-function ArticleList({ articles }) {
+import { ArticleMeta, Edition } from './types';
+
+interface ArticleListProps {
+    articles: ArticleMeta[];
+}
+
+interface EditionsDropdownProps {
+    editions: Edition[];
+}
+
+function ArticleList({ articles }: ArticleListProps) {
     return (
         <Stack spacing={2}>
             <Text color='#ADADAD' fontWeight='medium' fontStyle='italic'>
                 What's inside this issue?
             </Text>
             {articles.map((article) => (
-                <Text textDecorationLine='underline'>
-                    <Link href={article.link}>{article.title}</Link>
-                </Text>
+                <ChakraLink
+                    as={Link}
+                    href={`/${article.slug}`}
+                    key={article.title}
+                >
+                    <Text
+                        as='a'
+                        _hover={{
+                            textDecoration: 'underline',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        {article.title}
+                    </Text>
+                </ChakraLink>
             ))}
         </Stack>
     );
 }
 
-export default function EditionsDropdown({ editions }) {
+export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
     return (
         <Accordion allowMultiple allowToggle>
             {editions.map((edition) => {
                 return (
-                    <AccordionItem>
+                    <AccordionItem key={edition.num}>
                         <h2>
                             <AccordionButton
                                 _expanded={{

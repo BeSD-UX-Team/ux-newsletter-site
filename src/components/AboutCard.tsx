@@ -1,13 +1,20 @@
 import React from 'react';
 import { Flex, Image, Text, Heading } from '@chakra-ui/react';
 
+interface AboutCardProps {
+    imgSrc: string;
+    name: string;
+    position?: string;
+    message: string;
+}
+
 export default function AboutCard({
     imgSrc,
     name,
     position = 'Position',
     message,
     ...props
-}) {
+}: AboutCardProps) {
     return (
         <Flex w='100%' {...props}>
             <Flex
@@ -29,16 +36,7 @@ export default function AboutCard({
                 border='1px solid black'
                 borderRadius='lg'
             >
-                <Text>
-                    Hey there! I'm super excited to be sharing my undying love
-                    for UX. Quisque et mauris rutrum, tristique urna vitae,
-                    placerat nisl. Donec semper ante egestas arcu aliquet
-                    venenatis. Proin at posuere nibh. In hac habitasse platea
-                    dictumst. Mauris feugiat nisl sapien, eu imperdiet ipsum
-                    molestie quis. Donec quam tortor, viverra sit amet iaculis
-                    eget, mollis at mi. Nam congue est diam, non sodales arcu
-                    sagittis quis.
-                </Text>
+                <Text>{message}</Text>
             </Flex>
         </Flex>
     );

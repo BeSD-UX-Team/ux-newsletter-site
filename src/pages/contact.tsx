@@ -1,155 +1,278 @@
-import Head from 'next/head';
-import React, {useState} from 'react';
-import { Stack, Heading, Box, Text, Image, HStack, Center, Input, Textarea, Flex, Button, Alert, AlertIcon} from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
-
-import Container from '../components/Container';
+import Head from "next/head";
+import React, { useState } from "react";
+import {
+  Stack,
+  Heading,
+  Box,
+  Text,
+  Image,
+  HStack,
+  Center,
+  Input,
+  Textarea,
+  Flex,
+  Button,
+  Alert,
+  AlertIcon,
+} from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
+import Container from "../components/Container";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Contact() {
-    const { t } = useTranslation();
-    const [sendStatus, setSendStatus] = useState("notAttempted")
-    // text to send to the backend 
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [message, setMessage] = useState("")
+  const { t } = useTranslation("global");
+  const [sendStatus, setSendStatus] = useState("notAttempted");
+  // text to send to the backend
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-    // function that handles the sending of the email
-    const handleSend = async()=> {
-        if (!validEmail() || message == "" || name == "") {
-            setSendStatus("inputError")
-        } else {
-            try {
-                // would add api call here before setSendStatus
-                setSendStatus("success")
-            } catch (error) {
-                console.log(error)
-                setSendStatus("error")
-            }
-        }
+  // function that handles the sending of the email
+  const handleSend = async () => {
+    if (!validEmail() || message == "" || name == "") {
+      setSendStatus("inputError");
+    } else {
+      try {
+        // would add api call here before setSendStatus
+        setSendStatus("success");
+      } catch (error) {
+        console.log(error);
+        setSendStatus("error");
+      }
     }
+  };
 
-    const validEmail = () => {
-        //regex source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-        if (email == "") {
-            return false;
-        }
-        var emailRegex = /\S+@\S+\.\S+/;
-        return emailRegex.test(email);
+  const validEmail = () => {
+    //regex source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+    if (email == "") {
+      return false;
     }
-    
-    const renderInputError = () => {
-        if (name == "" || email == "" || message == "") {
-            return "Your email has not yet been sent out. Please fill in all fields!";
-        } else {
-            //regex source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-            var emailRegex = /\S+@\S+\.\S+/;
-            if (!emailRegex.test(email)) {
-                return "Your email has not yet been sent out. Please enter a valid email address in the form of example@example.example"
-            }
-        }
-    }
+    var emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+  };
 
-    const sendStatusFeedback = () => {
-        if (sendStatus == "inputError") {
-            return (            
-                <Alert margin="auto" maxWidth="500px" minWidth="300px" marginTop="30px" status="warning"> 
-                <AlertIcon />
-                {renderInputError()}
-                
-                </Alert>
-            )     
-        }
-        else if (sendStatus == "success") {
-            return (            
-                <Alert margin="auto" maxWidth="500px" minWidth="300px" marginTop="30px" status="success"> 
-                <AlertIcon />
-                We have received your message!
-                Thank you for contacting BeSD UI/UX. We will get back to you as soon as possible.
-                
-                </Alert>
-            )                        
-        } else if (sendStatus == "systemError") {
-            return (
-                <Alert margin="auto" maxWidth="500px" minWidth="300px" marginTop="30px" status="error"> 
-                <AlertIcon />
-                Your message could not be sent due to an unexpected error. We apologize for the inconvenience. Please try again later or send an email to besduiux@ec.gc.ca directly.  
-                </Alert> 
-            )
-        } 
+  const renderInputError = () => {
+    if (name == "" || email == "" || message == "") {
+      return "Your email has not yet been sent out. Please fill in all fields!";
+    } else {
+      //regex source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+      var emailRegex = /\S+@\S+\.\S+/;
+      if (!emailRegex.test(email)) {
+        return "Your email has not yet been sent out. Please enter a valid email address in the form of example@example.example";
+      }
     }
+  };
 
-    return (
-        <Container>
-            {console.log(sendStatus)}
-            {console.log(validEmail())}
-            <Head>
-                <title>Contact Us</title>
-                <meta
-                    name='description'
-                    content='Generated by create next app'
-                />
-                <link rel='icon' href='/favicon.ico' />
-            </Head>
-            <Stack
-                as='main'
-                spacing={8}
-                justifyContent='center'
-                alignItems='flex-start'
-                m='0 20px 4rem 20px'
+  const sendStatusFeedback = () => {
+    if (sendStatus == "inputError") {
+      return (
+        <Alert
+          margin="auto"
+          maxWidth="500px"
+          minWidth="300px"
+          marginTop="30px"
+          status="warning"
+        >
+          <AlertIcon />
+          {renderInputError()}
+        </Alert>
+      );
+    } else if (sendStatus == "success") {
+      return (
+        <Alert
+          margin="auto"
+          maxWidth="500px"
+          minWidth="300px"
+          marginTop="30px"
+          status="success"
+        >
+          <AlertIcon />
+          We have received your message! Thank you for contacting BeSD UI/UX. We
+          will get back to you as soon as possible.
+        </Alert>
+      );
+    } else if (sendStatus == "systemError") {
+      return (
+        <Alert
+          margin="auto"
+          maxWidth="500px"
+          minWidth="300px"
+          marginTop="30px"
+          status="error"
+        >
+          <AlertIcon />
+          Your message could not be sent due to an unexpected error. We
+          apologize for the inconvenience. Please try again later or send an
+          email to besduiux@ec.gc.ca directly.
+        </Alert>
+      );
+    }
+  };
+
+  return (
+    <Container>
+      {console.log(sendStatus)}
+      {console.log(validEmail())}
+      <Head>
+        <title>Contact Us</title>
+        <meta name="description" content="Generated by create next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Stack
+        as="main"
+        spacing={8}
+        justifyContent="center"
+        alignItems="flex-start"
+        m="0 20px 4rem 20px"
+      >
+        <Box w="100%" textAlign="center">
+          <Heading size="xl">{t("pages.contact")}</Heading>
+        </Box>
+        <Box w="100%">
+          <HStack w="100%" justify="center" flexWrap="wrap">
+            <Image
+              src="/assets/Avatar5.png"
+              alt="Ron Handley"
+              boxSize="100px"
+            />
+            <Image
+              src="/assets/Avatar4.png"
+              alt="Aleksui Riabtsev"
+              boxSize="100px"
+            />
+            <Image
+              src="/assets/Avatar3.png"
+              alt="Raied Siddiqui"
+              boxSize="100px"
+            />
+            <Image src="/assets/Avatar.png" alt="Jessie Lam" boxSize="100px" />
+            <Image
+              src="/assets/Avatar2.png"
+              alt="Jenny Zhang"
+              boxSize="100px"
+            />
+          </HStack>
+
+          <Heading size="lg" mt={7} pb={4} textAlign="center">
+            We'd love to help you
+          </Heading>
+
+          <Center>
+            <Text width="60%" align="center">
+              Got an application you want to improve? Need opinions on your
+              webpage? We got your back! We have a wonderful team of UX/UI
+              humans who would love to help make your webpages intuitive and
+              user-friendly.
+            </Text>
+          </Center>
+        </Box>
+        <Box width="100%">
+          <Flex
+            position="relative"
+            backgroundColor="#E5E5E5"
+            margin="auto"
+            maxWidth="500px"
+            minWidth="300px"
+            height="470px"
+            justifyContent="center"
+            flexWrap="wrap"
+            marginTop="40px"
+          >
+            <Flex
+              position="absolute"
+              top="-7"
+              justifyContent="center"
+              flexWrap="wrap"
+              width="100%"
             >
-                <Box w='100%' textAlign="center">
-                    <Heading size="xl"> Contact Us</Heading>
-                </Box>
-                <Box w='100%'>
+              <svg
+                width="104"
+                height="64"
+                viewBox="0 0 104 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <mask id="path-1-inside-1" fill="white">
+                  <rect width="104" height="64" rx="2" />
+                </mask>
+                <rect
+                  width="104"
+                  height="64"
+                  rx="2"
+                  fill="white"
+                  stroke="black"
+                  stroke-width="7"
+                  mask="url(#path-1-inside-1)"
+                />
+                <path
+                  d="M1.82471 2L49.5709 31.5235C52.2973 33.2094 53.6605 34.0523 55.163 34.0068C56.6655 33.9613 57.9752 33.0374 60.5946 31.1896L101.263 2.5"
+                  stroke="black"
+                  stroke-width="3.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M2.5 61L42.5 28.5" stroke="black" stroke-width="3.5" />
+                <path d="M101 61L65 29" stroke="black" stroke-width="3.5" />
+              </svg>
+            </Flex>
+            <Input
+              placeholder="Name"
+              borderBottom="1px solid #747474"
+              borderRadius="0"
+              mt="50px"
+              width="80%"
+              onChange={(e) => {
+                setName(e.target.value);
+                setSendStatus("notAttempted");
+              }}
+            />
+            <Input
+              placeholder="Email"
+              borderBottom="1px solid #747474"
+              borderRadius="0"
+              width="80%"
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setSendStatus("notAttempted");
+              }}
+            />
+            <Textarea
+              placeholder="Message"
+              borderBottom="1px solid #747474"
+              borderRadius="0"
+              height="45%"
+              width="80%"
+              resize="none"
+              onChange={(e) => {
+                setMessage(e.target.value);
+                setSendStatus("notAttempted");
+              }}
+            />
+            <Flex width="100%" justifyContent="center" flexWrap="wrap">
+              <Button
+                backgroundColor="black"
+                color="#EEEDED"
+                size="md"
+                _hover={{ backgroundColor: "black", color: "#EEEDED" }}
+                type="submit"
+                onClick={handleSend}
+              >
+                {" "}
+                EMAIL US{" "}
+              </Button>
+            </Flex>
+          </Flex>
+          {sendStatusFeedback()}
+        </Box>
+      </Stack>
+    </Container>
+  );
+}
 
-
-                    <HStack w='100%' justify="center" flexWrap="wrap">
-                        <Image src='/assets/Avatar5.png' alt='Ron Handley' boxSize="100px"/>
-                        <Image src='/assets/Avatar4.png' alt='Aleksui Riabtsev' boxSize="100px"/>
-                        <Image src='/assets/Avatar3.png' alt='Raied Siddiqui' boxSize="100px"/>
-                        <Image src='/assets/Avatar.png' alt='Jessie Lam' boxSize="100px"/>
-                        <Image src='/assets/Avatar2.png' alt='Jenny Zhang' boxSize="100px"/>
-                    </HStack>
-
-                    <Heading
-                        size='lg'
-                        mt={7}
-                        pb={4}
-                        textAlign = 'center'
-                    >
-                        We'd love to help you
-                    </Heading>
-
-                    <Center>
-                        <Text width="60%" align="center">
-                            Got an application you want to improve? Need opinions on your webpage? We got your back! 
-                            We have a wonderful team of UX/UI humans who would love to help make your webpages intuitive and user-friendly.
-                        </Text>
-                    </Center>
-                </Box>
-                <Box width="100%">
-                    <Flex position="relative" backgroundColor="#E5E5E5" margin="auto" maxWidth="500px" minWidth="300px" height="470px" justifyContent="center" flexWrap="wrap" marginTop="40px">
-                        <Flex position="absolute" top="-7" justifyContent="center" flexWrap="wrap" width="100%"> 
-                            <svg width="104" height="64" viewBox="0 0 104 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="path-1-inside-1" fill="white">
-                            <rect width="104" height="64" rx="2"/>
-                            </mask>
-                            <rect width="104" height="64" rx="2" fill="white" stroke="black" stroke-width="7" mask="url(#path-1-inside-1)"/>
-                            <path d="M1.82471 2L49.5709 31.5235C52.2973 33.2094 53.6605 34.0523 55.163 34.0068C56.6655 33.9613 57.9752 33.0374 60.5946 31.1896L101.263 2.5" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2.5 61L42.5 28.5" stroke="black" stroke-width="3.5"/>
-                            <path d="M101 61L65 29" stroke="black" stroke-width="3.5"/>
-                            </svg>
-                        </Flex>
-                            <Input placeholder="Name" borderBottom="1px solid #747474" borderRadius="0" mt="50px" width="80%" onChange={(e) => {setName(e.target.value); setSendStatus("notAttempted");}}/>
-                            <Input placeholder="Email" borderBottom="1px solid #747474" borderRadius="0"  width="80%" onChange={(e) => {setEmail(e.target.value); setSendStatus("notAttempted");}}/>
-                            <Textarea placeholder="Message" borderBottom="1px solid #747474" borderRadius="0" height="45%" width="80%" resize="none" onChange={(e) => {setMessage(e.target.value); setSendStatus("notAttempted");}}/>
-                            <Flex width="100%" justifyContent="center" flexWrap="wrap">
-                                <Button backgroundColor="black" color="#EEEDED" size="md" _hover={{backgroundColor:"black", color:"#EEEDED"}} type="submit" onClick={handleSend}> EMAIL US </Button>
-                            </Flex>
-                    </Flex>
-                    {sendStatusFeedback()}
-                </Box>
-            </Stack>
-        </Container>
-    );
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["global"])),
+    },
+  };
 }
