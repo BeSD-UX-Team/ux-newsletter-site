@@ -3,7 +3,6 @@ import { Box, Link, Text, Stack } from '@chakra-ui/react';
 
 import { ArticleMeta, Edition } from './types';
 
-// articles = [ { title, slug }]
 interface NavigationCardProps {
     edition: Edition;
     currArticle: ArticleMeta;
@@ -21,6 +20,7 @@ export default function NavigationCard({
             p={6}
             border={'2px solid black'}
             height='fit-content'
+            mb='4rem'
             {...props}
         >
             <Text mb={6} fontWeight='medium'>
@@ -37,7 +37,12 @@ export default function NavigationCard({
                             {currArticle.slug === slug ? (
                                 <Text fontWeight='semibold'>{title}</Text>
                             ) : (
-                                <Link href={`/editions/${slug}`}>{title}</Link>
+                                <Link
+                                    href={`/editions/${slug}`}
+                                    textDecoration='underline'
+                                >
+                                    {title}
+                                </Link>
                             )}
                         </Box>
                     );

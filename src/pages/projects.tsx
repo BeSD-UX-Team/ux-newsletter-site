@@ -29,7 +29,7 @@ export default function Projects() {
                 <Flex w='100%' justifyContent='center' alignItems='flex-start'>
                     <Heading as='h1'>{t('pages.projects')}</Heading>
                 </Flex>
-                <SimpleGrid columns={3} spacing={10}>
+                <SimpleGrid columns={3} spacing={10} minChildWidth='300px'>
                     <ProjectCard
                         projectName='Project X'
                         img={{ src: '/assets/map.png', alt: 'Image of Map' }}

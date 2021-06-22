@@ -29,6 +29,13 @@
                     "type": "normal",
                     "body": "This is where the markdown goes..."
                 }
+            ],
+            "externalResources": [
+                {
+                    "url": "www.google.com",
+                    "title": "Google Home",
+                    "source": "Google"
+                }
             ]
         }
     ]

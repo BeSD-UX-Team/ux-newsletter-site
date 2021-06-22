@@ -16,7 +16,7 @@ export default function ArticleNavigationBar({
     ...props
 }: ArticleNavBarProps) {
     return (
-        <Flex {...props}>
+        <Flex {...props} w='100%' pt='4rem'>
             {prevArticle && (
                 <Button as='a' leftIcon={<ArrowBackIcon />} variant='ghost'>
                     <Link href={`/${prevArticle.slug}`}> PREV </Link>
