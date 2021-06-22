@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Stack,
   Heading,
@@ -26,6 +26,9 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const nameInput = useRef<HTMLInputElement>();
+  const emailInput = useRef<HTMLInputElement>();
+  const messageTextArea = useRef<HTMLTextAreaElement>();
 
   // function that handles the sending of the email
   const handleSend = async () => {
@@ -35,6 +38,12 @@ export default function Contact() {
       try {
         // would add api call here before setSendStatus
         setSendStatus("success");
+        nameInput.current.value = "" ;
+        setName("");
+        emailInput.current.value = "" ;
+        setEmail("");
+        messageTextArea.current.value = "" ;
+        setMessage("");
       } catch (error) {
         console.log(error);
         setSendStatus("error");
@@ -51,18 +60,12 @@ export default function Contact() {
     return emailRegex.test(email);
   };
 
-  const renderInputError = () => {
-    if (name == "" || email == "" || message == "") {
-      return "Your email has not yet been sent out. Please fill in all fields!";
-    } else {
-      //regex source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-      var emailRegex = /\S+@\S+\.\S+/;
-      if (!emailRegex.test(email)) {
-        return "Please enter a valid email address.";
-      }
+  const removeSentAfterChange = () => {
+    if (sendStatus == "success") {
+      setSendStatus("notAttempted");
     }
-  };
-
+  }
+  
   const sendStatusFeedback = () => {
     if (sendStatus == "success") {
       return (
@@ -216,8 +219,10 @@ export default function Contact() {
                     borderRadius="0"
                     mt="50px"
                     width="80%"
+                    ref = {nameInput} 
                     onChange={(e) => {
                         setName(e.target.value);
+                        removeSentAfterChange();
                     }}
                     />
                     {(sendStatus == "inputError" && name == "") ?         
@@ -236,11 +241,13 @@ export default function Contact() {
                     </Alert>:""}
                     <Input
                     placeholder="Email"
+                    ref = {emailInput} 
                     borderBottom="1px solid #747474"
                     borderRadius="0"
                     width="80%"
                     onChange={(e) => {
                         setEmail(e.target.value);
+                        removeSentAfterChange()
                     }}
                     />
                     {(sendStatus == "inputError" && email == "") ?         
@@ -273,6 +280,7 @@ export default function Contact() {
                   </Alert>:""}
                     <Textarea
                     placeholder="Message"
+                    ref = {messageTextArea} 
                     borderBottom="1px solid #747474"
                     borderRadius="0"
                     height="45%"
@@ -280,6 +288,7 @@ export default function Contact() {
                     resize="none"
                     onChange={(e) => {
                         setMessage(e.target.value);
+                        removeSentAfterChange()
                     }}
                     />
                     {(sendStatus == "inputError" && message == "") ?         
