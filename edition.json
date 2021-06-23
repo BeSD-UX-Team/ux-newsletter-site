@@ -8,26 +8,26 @@
                 {
                     "type": "special-list-item",
                     "value": 1,
-                    "body": "Here is where the markdown goes..."
+                    "body": "key-here"
                 },
                 {
                     "type": "special-list-item",
                     "value": 2,
-                    "body": "Here is where the markdown goes..."
+                    "body": "key-here"
                 },
                 {
                     "type": "wrapper-item",
-                    "title": "Before",
-                    "body": "This is where the markdown goes..."
+                    "title": "key-here",
+                    "body": "key-here"
                 },
                 {
                     "type": "wrapper-item",
-                    "title": "After",
-                    "body": "This is where the markdown goes..."
+                    "title": "key-here",
+                    "body": "key-here"
                 },
                 {
                     "type": "normal",
-                    "body": "This is where the markdown goes..."
+                    "body": "key-here"
                 }
             ],
             "externalResources": [
