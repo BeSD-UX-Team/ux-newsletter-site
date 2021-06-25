@@ -5,32 +5,63 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
+    Link as ChakraLink,
     Stack,
     Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 
-function ArticleList({ articles }) {
+import { ArticleMeta, Edition } from './types';
+
+interface ArticleListProps {
+    articles: ArticleMeta[];
+}
+
+interface EditionsDropdownProps {
+    editions: Edition[];
+}
+
+function ArticleList({ articles }: ArticleListProps) {
     return (
         <Stack spacing={2}>
-            <Text>What's inside this issue?</Text>
+            <Text color='#ADADAD' fontWeight='medium' fontStyle='italic'>
+                What's inside this issue?
+            </Text>
             {articles.map((article) => (
-                <Link key={article.title} href={article.link}>
-                    {article.title}
-                </Link>
+                <ChakraLink
+                    as={Link}
+                    href={`/${article.slug}`}
+                    key={article.title}
+                >
+                    <Text
+                        as='a'
+                        _hover={{
+                            textDecoration: 'underline',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        {article.title}
+                    </Text>
+                </ChakraLink>
             ))}
         </Stack>
     );
 }
 
-export default function EditionsDropdown({ editions }) {
+export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
     return (
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion allowMultiple allowToggle>
             {editions.map((edition) => {
                 return (
                     <AccordionItem key={edition.num}>
                         <h2>
-                            <AccordionButton>
+                            <AccordionButton
+                                _expanded={{
+                                    bg: '#E5E5E5',
+                                    fontWeight: 'medium',
+                                }}
+                                _focus={{ outline: 'none', boxShadow: 'none' }}
+                            >
                                 <Box flex='1' textAlign='left'>
                                     {`Edition ${edition.num} - ${edition.date}`}
                                 </Box>

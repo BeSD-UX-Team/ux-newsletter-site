@@ -12,16 +12,19 @@ const editionsData = [
         date: 'June 2021',
         articles: [
             {
+                editionNum: 1,
                 title: 'What are you losing out on without UX?',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 1,
                 title: 'How we transformed Project X',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 1,
                 title: 'Facts you should know about users',
-                link: '/',
+                slug: 'some-article',
             },
         ],
     },
@@ -30,16 +33,19 @@ const editionsData = [
         date: 'Sept 2021',
         articles: [
             {
+                editionNum: 2,
                 title: 'What are you losing out on without UX?',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 2,
                 title: 'How we transformed Project X',
-                link: '/',
+                slug: 'some-article',
             },
             {
+                editionNum: 2,
                 title: 'Facts you should know about users',
-                link: '/',
+                slug: 'some-article',
             },
         ],
     },
@@ -61,14 +67,14 @@ export default function Editions() {
                 m='0 20px 4rem 20px'
                 maxWidth='1220px'
             >
-                <Box w='80vw' maxWidth='1220px'>
+                <Box mt={2} w='80vw' maxWidth='1220px'>
                     <Heading
                         size='lg'
                         mb={4}
                         pb={4}
                         borderBottom='4px solid #E5E5E5'
                     >
-                        All Previous Editions
+                        {t('pages.editions')}
                     </Heading>
                     <EditionsDropdown editions={editionsData} />
                 </Box>

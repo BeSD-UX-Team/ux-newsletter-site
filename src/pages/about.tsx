@@ -62,22 +62,27 @@ export default function About() {
                         <AboutCard
                             imgSrc='/assets/Avatar5.png'
                             name='Ron Handley'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar4.png'
                             name='Aleksui Riabtsev'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar3.png'
                             name='Raied Siddiqui'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar.png'
                             name='Jessie Lam'
+                            message='Hello world!'
                         />
                         <AboutCard
                             imgSrc='/assets/Avatar2.png'
                             name='Jenny Zhang'
+                            message='Hello world!'
                         />
                     </SimpleGrid>
                 </Box>
