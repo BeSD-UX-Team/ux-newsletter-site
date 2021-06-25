@@ -12,26 +12,30 @@ import {
 import Link from 'next/link';
 
 import { ArticleMeta, Edition } from './types';
+import { useRouter } from 'next/router';
 
 interface ArticleListProps {
     articles: ArticleMeta[];
+    linkPrefix: string;
 }
 
 interface EditionsDropdownProps {
     editions: Edition[];
 }
 
-function ArticleList({ articles }: ArticleListProps) {
+function ArticleList({ articles, linkPrefix }: ArticleListProps) {
+    const router = useRouter();
     return (
         <Stack spacing={2}>
             <Text color='#ADADAD' fontWeight='medium' fontStyle='italic'>
                 What's inside this issue?
             </Text>
             {articles.map((article) => (
-                <ChakraLink
-                    as={Link}
-                    href={`/${article.slug}`}
+                <Link
+                    href={`${linkPrefix}/${article.slug}`}
+                    locale={router.locale}
                     key={article.title}
+                    passHref
                 >
                     <Text
                         as='a'
@@ -42,7 +46,7 @@ function ArticleList({ articles }: ArticleListProps) {
                     >
                         {article.title}
                     </Text>
-                </ChakraLink>
+                </Link>
             ))}
         </Stack>
     );
@@ -71,6 +75,7 @@ export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
                         <AccordionPanel pb={4}>
                             <ArticleList
                                 articles={edition.articles}
+                                linkPrefix={`/edition${edition.num}`}
                             ></ArticleList>
                         </AccordionPanel>
                     </AccordionItem>

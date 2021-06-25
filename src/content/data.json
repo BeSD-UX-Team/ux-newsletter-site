@@ -1,0 +1,14 @@
+{
+    "editions": [
+        {
+            "num": 1,
+            "date": "June 2021",
+            "articles": [
+                {
+                    "title": "How we transformed X",
+                    "slug": "how-we-transformed-x"
+                }
+            ]
+        }
+    ]
+}

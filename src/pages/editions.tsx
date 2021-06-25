@@ -51,7 +51,7 @@ const editionsData = [
     },
 ];
 
-export default function Editions() {
+export default function Editions({ editionsData }) {
     const { t } = useTranslation('global');
     return (
         <Container>
@@ -84,8 +84,10 @@ export default function Editions() {
 }
 
 export async function getStaticProps({ locale }) {
+    const data = await import(`../content/data.json`);
     return {
         props: {
+            editionsData: data.editions,
             ...(await serverSideTranslations(locale, ['global'])),
         },
     };

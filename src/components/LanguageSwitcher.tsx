@@ -13,7 +13,7 @@ export default function LanguageSwitcher() {
 
     return (
         <Stack direction='row' spacing={0}>
-            <Link href={router.pathname} locale='en'>
+            <Link href={router.asPath} locale='en'>
                 <LangButton
                     variant='ghost'
                     p={0}
@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
                     EN
                 </LangButton>
             </Link>
-            <Link href={router.pathname} locale='fr'>
+            <Link href={router.asPath} locale='fr'>
                 <LangButton
                     variant='ghost'
                     p={0}
