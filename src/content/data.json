@@ -1,11 +1,33 @@
 {
     "editions": [
         {
-            "num": 1,
-            "date": "June 2021",
+            "editionNum": 1,
+            "datePublished": "June 2021",
             "articles": [
                 {
-                    "title": "How we transformed X",
+                    "title": "article-one.title",
+                    "slug": "intro-to-ux"
+                },
+                {
+                    "title": "article-two.title",
+                    "slug": "how-we-transformed-x"
+                },
+                {
+                    "title": "Mock Article",
+                    "slug": "key-in-locale-file"
+                }
+            ]
+        },
+        {
+            "editionNum": 2,
+            "datePublished": "Sept 2021",
+            "articles": [
+                {
+                    "title": "intro-to-ux.title",
+                    "slug": "intro-to-ux"
+                },
+                {
+                    "title": "how-we-transformed-x.title",
                     "slug": "how-we-transformed-x"
                 }
             ]

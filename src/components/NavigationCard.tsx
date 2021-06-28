@@ -1,18 +1,21 @@
 import React from 'react';
+import NextLink from 'next/link';
 import { Box, Link, Text, Stack } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 
 import { ArticleMeta, Edition } from './types';
 
 interface NavigationCardProps {
     edition: Edition;
-    currArticle: ArticleMeta;
+    currSlug: string;
 }
 
 export default function NavigationCard({
     edition,
-    currArticle,
+    currSlug,
     ...props
 }: NavigationCardProps) {
+    const { t } = useTranslation(`edition${edition.editionNum}`);
     return (
         <Box
             minWidth='200px'
@@ -24,7 +27,7 @@ export default function NavigationCard({
             {...props}
         >
             <Text mb={6} fontWeight='medium'>
-                {`Edition ${edition.num}: `}{' '}
+                {`Edition ${edition.editionNum}: `}{' '}
                 <Text as='span' fontStyle='italic'>
                     What's inside this issue?
                 </Text>
@@ -33,15 +36,25 @@ export default function NavigationCard({
             <Stack spacing={1}>
                 {edition.articles.map(({ title, slug }) => {
                     return (
-                        <Box>
-                            {currArticle.slug === slug ? (
-                                <Text fontWeight='semibold'>{title}</Text>
+                        <Box key={slug}>
+                            {currSlug === slug ? (
+                                <Text fontWeight='semibold' noOfLines={2}>
+                                    {t(title)}
+                                </Text>
                             ) : (
                                 <Link
-                                    href={`/editions/${slug}`}
+                                    as={NextLink}
+                                    href={`/edition${edition.editionNum}/${slug}`}
+                                    passHref
                                     textDecoration='underline'
                                 >
-                                    {title}
+                                    <Text
+                                        as='a'
+                                        textDecoration='underline'
+                                        noOfLines={2}
+                                    >
+                                        {t(title)}
+                                    </Text>
                                 </Link>
                             )}
                         </Box>

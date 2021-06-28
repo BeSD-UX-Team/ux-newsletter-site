@@ -10,13 +10,26 @@ import NumIcon from '../../components/NumIcon';
 import ArticleNavigationBar from '../../components/ArticleNavigationBar';
 import NavigationCard from '../../components/NavigationCard';
 
-export default function Article({ edition }) {
-    const { t } = useTranslation('edition-one');
-    const article = edition.articles[1];
+export default function Article({
+    editionMeta,
+    currArticle,
+    currArticleIndex,
+}) {
+    // We want to use the namespace for this specific edition
+    // This corresponds to the JSON file in /public/locales
+    const { t } = useTranslation(`edition${editionMeta.editionNum}`);
+
+    if (currArticle === null) {
+        currArticle = {
+            title: 'Work in progress',
+            content: [],
+        };
+    }
+
     return (
         <Container>
             <Head>
-                <title>Article - BeSD UX Team</title>
+                <title>{`${currArticle.title}`} - BeSD UX Team</title>
             </Head>
             <Stack
                 as='main'
@@ -29,7 +42,7 @@ export default function Article({ edition }) {
             >
                 <NavigationCard
                     edition={editionMeta}
-                    currArticle={currArticle}
+                    currSlug={editionMeta.articles[currArticleIndex].slug}
                 />
                 <Flex w='100%' justifyContent='flex-start'>
                     <Heading
@@ -40,13 +53,13 @@ export default function Article({ edition }) {
                         borderBottom='4px solid #E5E5E5'
                         lineHeight='130%'
                     >
-                        {t(article.title)}
+                        {t(currArticle.title)}
                     </Heading>
                 </Flex>
                 <Stack spacing={12}>
-                    {article.content.map((section) => {
+                    {currArticle.content.map((section, i) => {
                         return (
-                            <Stack spacing='1rem'>
+                            <Stack spacing='1rem' key={i}>
                                 {section.map((component) => {
                                     return component.type ===
                                         'special-list-item' ? (
@@ -84,37 +97,14 @@ export default function Article({ edition }) {
                     })}
                 </Stack>
                 <ArticleNavigationBar
-                    nextArticle={mockNextArticle}
-                    prevArticle={mockPrevArticle}
+                    nextArticle={editionMeta.articles[currArticleIndex + 1]}
+                    prevArticle={editionMeta.articles[currArticleIndex - 1]}
+                    editionNum={editionMeta.editionNum}
                 />
             </Stack>
         </Container>
     );
 }
-
-const mockPrevArticle = {
-    title: 'Previous Article',
-    slug: 'prev-article',
-    editionNum: 1,
-};
-
-const mockNextArticle = {
-    title: 'Next Article',
-    slug: 'next-article',
-    editionNum: 1,
-};
-
-const currArticle = {
-    title: 'How we transformed the Canadian Wildlife Service Species at Risk public registry (CWS-SAR)',
-    slug: 'example-article',
-    editionNum: 1,
-};
-
-const editionMeta = {
-    num: 1,
-    date: 'June 30, 2021',
-    articles: [mockPrevArticle, currArticle, mockNextArticle],
-};
 
 export async function getStaticPaths() {
     const { editions } = await import(`../../content/data.json`);
@@ -123,7 +113,7 @@ export async function getStaticPaths() {
     const paths = editions.reduce((accumulator, edition) => {
         let articleSlugs = edition.articles.map((article) => article.slug);
         let params = articleSlugs.map((slug) => ({
-            params: { edition: `edition${edition.num}`, slug: slug },
+            params: { edition: `edition${edition.editionNum}`, slug: slug },
         }));
         return accumulator.concat(params);
     }, []);
@@ -142,125 +132,28 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ locale }) {
-    const edition1 = {
-        editionNum: 1,
-        datePublished: 'Jan 12, 2021',
-        articles: [
-            {
-                title: 'article-one.title',
-                content: [
-                    [
-                        {
-                            id: 1,
-                            type: 'normal',
-                            body: 'article-one.section-one',
-                        },
-                    ],
-                    [
-                        {
-                            id: 2,
-                            type: 'normal',
-                            body: 'article-one.section-two-title',
-                        },
-                        {
-                            id: 3,
-                            type: 'special-list-item',
-                            value: 1,
-                            body: 'article-one.section-two-first',
-                        },
-                        {
-                            id: 4,
-                            type: 'special-list-item',
-                            value: 2,
-                            body: 'article-one.section-two-second',
-                        },
-                        {
-                            id: 5,
-                            type: 'special-list-item',
-                            value: 3,
-                            body: 'article-one.section-two-third',
-                        },
-                    ],
-                    [
-                        {
-                            id: 6,
-                            type: 'normal',
-                            body: 'article-one.section-three-title',
-                        },
-                        {
-                            id: 7,
-                            type: 'special-list-item',
-                            value: 1,
-                            body: 'article-one.section-three-first',
-                        },
-                        {
-                            id: 7,
-                            type: 'special-list-item',
-                            value: 2,
-                            body: 'article-one.section-three-second',
-                        },
-                    ],
-                ],
-                externalResources: [
-                    {
-                        url: 'www.google.com',
-                        title: 'Google Home',
-                        source: 'Google',
-                    },
-                ],
-            },
-            {
-                title: 'article-two.title',
-                content: [
-                    [
-                        {
-                            id: 8,
-                            type: 'normal',
-                            body: 'article-two.section-one',
-                        },
-                    ],
-                    [
-                        {
-                            id: 9,
-                            type: 'normal',
-                            body: 'article-two.section-two',
-                        },
-                    ],
-                    [
-                        {
-                            id: 10,
-                            type: 'normal',
-                            body: 'article-two.section-three.title',
-                        },
-                        {
-                            id: 11,
-                            type: 'wrapper-item',
-                            title: 'article-two.section-three.first-wrapper-one',
-                            body: 'article-two.section-three.first-wrapper-one-body',
-                        },
-                        {
-                            id: 12,
-                            type: 'wrapper-item',
-                            title: 'article-two.section-three.first-wrapper-two',
-                            body: 'article-two.section-three.first-wrapper-two-body',
-                        },
-                        {
-                            id: 13,
-                            type: 'normal',
-                            body: 'article-two.section-three.first-content',
-                        },
-                    ],
-                ],
-            },
-        ],
-    };
+export async function getStaticProps({ locale, params }) {
+    // Obtain metadata about all editions
+    const { editions } = await import(`../../content/data.json`);
+    // Obtain all article data in this specific edition
+    const { edition } = await import(`../../content/${params.edition}.json`);
+
+    const currArticle =
+        edition.articles.filter((article) => article.slug === params.slug)[0] ||
+        null;
+
+    // We need the index of this article to determine the prev and next articles
+    const currArticleIndex = editions[
+        edition.editionNum - 1
+    ].articles.findIndex((article) => article.slug === params.slug);
 
     return {
         props: {
-            edition: edition1,
+            editionMeta: editions[edition.editionNum - 1],
+            currArticle,
+            currArticleIndex,
             ...(await serverSideTranslations(locale, [
-                'edition-one',
+                params.edition,
                 'global',
             ])),
         },

@@ -5,8 +5,8 @@ type ArticleMeta = {
 };
 
 type Edition = {
-    num: number;
-    date: string;
+    editionNum: number;
+    datePublished: string;
     articles: ArticleMeta[];
 };
 

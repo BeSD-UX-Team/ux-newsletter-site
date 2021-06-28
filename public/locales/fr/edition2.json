@@ -1,0 +1,29 @@
+{
+    "intro-to-ux": {
+        "title": "L'intro à UX et notre équipe (2)",
+        "section-one": "# Qu'est-ce que c'est l'UX?\n\nL'UX, ou l'éxperience d'user, est un sujet d'étude sur l'intéraction entre les êtres humains (comme nous) et les produits ou services quotidiens. Le but de design qui est basé sur les utilisateurs est de comprendre plus les utilisateurs finals et leur besoins, désires, et limitations.",
+        "section-two-title": "# Pourquoi avons-nous besoin de l'UX?",
+        "section-two-first": "## (french) Saves development time and costs\n\nA lot of UX research starts before development. It aids in establishing project expectations and determine if proposed features are worthwhile pursuing. It can also help find gaps in a project.This can save a lot of wasted time and headaches in development. Further, making major changes after dev is expensive.",
+        "section-two-second": "## (french) Less user support and more satisfied users\n\nCreating a product/service that is intuitive to use for your target users means less confusion. For you, this means relying less on customer support and extensive tutorials. For your users, this means completing their tasks more quickly and avoiding the hassle of scouring for answers, which leads to greater user satisfaction and engagement.",
+        "section-two-third": "## (french) Considers accessibility needs\n\nGood UX considers all user needs including disabilities, and ensures that as many people as possible are able to access content and services.",
+        "section-three-title": "# (french) What do we offer as the UX Team? ",
+        "section-three-first": "## (french) User Research \n\n In order to create a great product that solves problems for users, we must first understand what those problems are. Let us help uncover the needs, requirements, desires and limitations of your target users. We apply evidence-based UX research tools and techniques.  to design products alongside your team and create an efficient and enjoyable experience for your users.",
+        "section-three-second": "## (french) Wireframes, Mockups and Prototypes\n\nThe UX Team provides detailed and high-quality user interface wireframes, designs mockups and interactive prototypes. We can provide you with a variety of design deliverables catered to your project, which can be used for user feedback, usability testing and assist in development."
+    },
+    "how-we-transformed-x": {
+        "title": "Comment nous avons changé le système de Canadian Wildlife Service Species at Risk public registry (CWS-SAR) (2)",
+        "section-one": "# (French) Project overview\n\nThe SAR (Species at Risk) Renewal Initiative was started by the Canadian Wildlife Service (CWS) with the goal of replacing old databases and data models. The original application was written in ColdFusion, which was being decommissioned. As the application was being migrated to use newer technologies, it was about time to re-evaluate the user experience of the application, and give it a long overdue re-design.\n\nSAR Public Registry is a searchable database of all species in Canada available to the public. Its purpose is not only to meet a legal requirement under the Species at Risk Act, but to act as an extensive resource that is used by scientists, academic researchers, ECCC and other Government of Canada employees. Given its ongoing relevance, it was important that the application addressed the various users' needs.",
+        "section-two": "# (French) Our Role\n\nOur team identified pain points in the old CWS-SAR webpage and provided expertise in user-centric design to make improvements. We communicated extensively with clients by presenting them with many mockups, which illustrated proposed changes to the design of the webpage. We iteratively modified our mockups to reflect the wants and needs of our clients and potential users, and adapting when these needs changed. Ultimately, we re-designed the website to improve its visibility and intuitiveness, as well as added new features that would aid users in completing their goals more effectively.",
+        "section-three": {
+            "title": "# Les modifications majeurs",
+            "first": "## La recherche de mots clés",
+            "first-wrapper-one": "Avant",
+
+            "first-wrapper-one-body": "![Fullstack React](https://dzxbosgk90qga.cloudfront.net/fit-in/504x658/n/20190131015240478_fullstack-react-cover-medium%402x.png)",
+            "first-wrapper-two": "Après",
+
+            "first-wrapper-two-body": "![Fullstack React](https://dzxbosgk90qga.cloudfront.net/fit-in/504x658/n/20190131015240478_fullstack-react-cover-medium%402x.png)",
+            "first-content": "(french) A feature of the CWS-SAR website is keyword search of species recorded in the database.\n\nBefore, there was no specification on what types of “keywords” should be entered. The term “keywords” is too ambiguous. Users may have to try a few things before being able to use the search function to achieve their goals.\n\nAfter modification, there is guiding gray text that specifies to users what they can search by specifically (i.e. name or population). Additionally, an information button is provided that contains instructions for more complicated searches. The guiding text and information button clears up the ambiguitiy on how to use the search function.\n\n**Takeaway: Provide simple guidelines for potentially confusing features**"
+        }
+    }
+}

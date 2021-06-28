@@ -5,26 +5,28 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
-    Link as ChakraLink,
     Stack,
     Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 import { ArticleMeta, Edition } from './types';
 import { useRouter } from 'next/router';
 
 interface ArticleListProps {
     articles: ArticleMeta[];
-    linkPrefix: string;
+    editionNum: number;
 }
 
 interface EditionsDropdownProps {
     editions: Edition[];
 }
 
-function ArticleList({ articles, linkPrefix }: ArticleListProps) {
+function ArticleList({ articles, editionNum }: ArticleListProps) {
     const router = useRouter();
+    const { t } = useTranslation(`edition${editionNum}`);
+
     return (
         <Stack spacing={2}>
             <Text color='#ADADAD' fontWeight='medium' fontStyle='italic'>
@@ -32,9 +34,9 @@ function ArticleList({ articles, linkPrefix }: ArticleListProps) {
             </Text>
             {articles.map((article) => (
                 <Link
-                    href={`${linkPrefix}/${article.slug}`}
+                    href={`edition${editionNum}/${article.slug}`}
                     locale={router.locale}
-                    key={article.title}
+                    key={article.slug}
                     passHref
                 >
                     <Text
@@ -44,7 +46,7 @@ function ArticleList({ articles, linkPrefix }: ArticleListProps) {
                             cursor: 'pointer',
                         }}
                     >
-                        {article.title}
+                        {t(article.title)}
                     </Text>
                 </Link>
             ))}
@@ -57,7 +59,7 @@ export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
         <Accordion allowMultiple allowToggle>
             {editions.map((edition) => {
                 return (
-                    <AccordionItem key={edition.num}>
+                    <AccordionItem key={edition.editionNum}>
                         <h2>
                             <AccordionButton
                                 _expanded={{
@@ -67,7 +69,7 @@ export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
                                 _focus={{ outline: 'none', boxShadow: 'none' }}
                             >
                                 <Box flex='1' textAlign='left'>
-                                    {`Edition ${edition.num} - ${edition.date}`}
+                                    {`Edition ${edition.editionNum} - ${edition.datePublished}`}
                                 </Box>
                                 <AccordionIcon />
                             </AccordionButton>
@@ -75,7 +77,7 @@ export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
                         <AccordionPanel pb={4}>
                             <ArticleList
                                 articles={edition.articles}
-                                linkPrefix={`/edition${edition.num}`}
+                                editionNum={edition.editionNum}
                             ></ArticleList>
                         </AccordionPanel>
                     </AccordionItem>
