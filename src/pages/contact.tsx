@@ -19,6 +19,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Contact() {
     const { t } = useTranslation('global');
+    const contact = useTranslation('contact');
 
     return (
         <Container>
@@ -70,15 +71,12 @@ export default function Contact() {
                     </HStack>
 
                     <Heading size='lg' mt={7} pb={4} textAlign='center'>
-                        We'd love to help you
+                        {contact.t('contact-us.big-cta')}
                     </Heading>
 
                     <Center>
                         <Text width='60%' align='center'>
-                            Got an application you want to improve? Need
-                            opinions on your webpage? We got your back! We have
-                            a wonderful team of UX/UI humans who would love to
-                            help make your webpages intuitive and user-friendly.
+                            {contact.t('contact-us.cta-details')}
                         </Text>
                     </Center>
                 </Box>
@@ -184,7 +182,7 @@ export default function Contact() {
 export async function getStaticProps({ locale }) {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ['global'])),
+            ...(await serverSideTranslations(locale, ['contact', 'global'])),
         },
     };
 }

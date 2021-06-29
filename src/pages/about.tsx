@@ -10,6 +10,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function About() {
     const { t } = useTranslation('global');
+    const about = useTranslation('about');
+
     return (
         <Container>
             <Head>
@@ -33,21 +35,9 @@ export default function About() {
                         pb={4}
                         borderBottom='4px solid #E5E5E5'
                     >
-                        What we do
+                        {about.t('what-we-do.title')}
                     </Heading>
-                    <Text>
-                        Ut auctor, magna sit amet pulvinar facilisis, tellus
-                        lectus convallis dolor, eget fringilla neque felis vel
-                        sapien. Fusce aliquam libero sit amet sem dictum
-                        accumsan. Fusce ultrices sapien gravida dui laoreet,
-                        eget porttitor nisi convallis. Suspendisse arcu nibh,
-                        pulvinar quis convallis quis, bibendum ac nibh. Mauris
-                        eu lectus id urna varius euismod. Integer consectetur
-                        nulla mi, consequat ultrices neque egestas vitae.
-                        Quisque non mi ipsum. Mauris a egestas quam. Donec a
-                        pretium lectus. Quisque vestibulum pharetra mi, ornare
-                        dictum leo.
-                    </Text>
+                    <Text>{about.t('what-we-do.body')}</Text>
                 </Box>
                 <Box w='100%'>
                     <Heading
@@ -56,7 +46,7 @@ export default function About() {
                         pb={4}
                         borderBottom='4px solid #E5E5E5'
                     >
-                        Meet the team
+                        {about.t('meet-the-team.title')}
                     </Heading>
                     <SimpleGrid columns={[1, null, 2]} spacing={12} p={4}>
                         <AboutCard
@@ -92,9 +82,12 @@ export default function About() {
 }
 
 export async function getStaticProps({ locale }) {
+    // Obtain metadata about all editions
+    const { members } = await import(`../content/team.json`);
+
     return {
         props: {
-            ...(await serverSideTranslations(locale, ['global'])),
+            ...(await serverSideTranslations(locale, ['about', 'global'])),
         },
     };
 }
