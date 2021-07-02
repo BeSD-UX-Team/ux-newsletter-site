@@ -16,6 +16,7 @@ export default function NavigationCard({
     ...props
 }: NavigationCardProps) {
     const { t } = useTranslation(`edition${edition.editionNum}`);
+    const global = useTranslation('global');
     return (
         <Box
             minWidth='200px'
@@ -27,13 +28,13 @@ export default function NavigationCard({
             {...props}
         >
             <Text mb={6} fontWeight='medium'>
-                {`Edition ${edition.editionNum}: `}{' '}
+                {`${global.t('labels.edition')} ${edition.editionNum}: `}{' '}
                 <Text as='span' fontStyle='italic'>
-                    What's inside this issue?
+                    {global.t("labels.what's-inside")}
                 </Text>
             </Text>
 
-            <Stack spacing={1}>
+            <Stack spacing={2}>
                 {edition.articles.map(({ title, slug }) => {
                     return (
                         <Box key={slug}>

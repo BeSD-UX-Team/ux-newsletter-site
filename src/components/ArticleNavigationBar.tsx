@@ -3,6 +3,7 @@ import { Flex, Spacer, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import { ArticleMeta } from './types';
+import { useTranslation } from 'next-i18next';
 
 interface ArticleNavBarProps {
     nextArticle?: ArticleMeta;
@@ -17,8 +18,9 @@ export default function ArticleNavigationBar({
     editionNum,
     ...props
 }: ArticleNavBarProps) {
+    const { t } = useTranslation('global');
     // We only want to render the prev and next buttons if there
-    // exists prevArticle and nextArticle respectively
+    // exists prevArticle and nextArticle rsespectively
     return (
         <Flex {...props} w='100%' pt='4rem'>
             {prevArticle && (
@@ -27,7 +29,7 @@ export default function ArticleNavigationBar({
                     passHref
                 >
                     <Button as='a' leftIcon={<ArrowBackIcon />} variant='ghost'>
-                        PREV
+                        {t('labels.prev')}
                     </Button>
                 </Link>
             )}
@@ -42,7 +44,7 @@ export default function ArticleNavigationBar({
                         rightIcon={<ArrowForwardIcon />}
                         variant='ghost'
                     >
-                        NEXT
+                        {t('labels.next')}
                     </Button>
                 </Link>
             )}

@@ -26,11 +26,12 @@ interface EditionsDropdownProps {
 function ArticleList({ articles, editionNum }: ArticleListProps) {
     const router = useRouter();
     const { t } = useTranslation(`edition${editionNum}`);
+    const global = useTranslation('global');
 
     return (
         <Stack spacing={2}>
             <Text color='#ADADAD' fontWeight='medium' fontStyle='italic'>
-                What's inside this issue?
+                {global.t("labels.what's-inside")}
             </Text>
             {articles.map((article) => (
                 <Link
@@ -55,6 +56,8 @@ function ArticleList({ articles, editionNum }: ArticleListProps) {
 }
 
 export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
+    const global = useTranslation('global');
+
     return (
         <Accordion allowMultiple allowToggle>
             {editions.map((edition) => {
@@ -69,7 +72,9 @@ export default function EditionsDropdown({ editions }: EditionsDropdownProps) {
                                 _focus={{ outline: 'none', boxShadow: 'none' }}
                             >
                                 <Box flex='1' textAlign='left'>
-                                    {`Edition ${edition.editionNum} - ${edition.datePublished}`}
+                                    {`${global.t('labels.edition')} ${
+                                        edition.editionNum
+                                    } - ${edition.datePublished}`}
                                 </Box>
                                 <AccordionIcon />
                             </AccordionButton>

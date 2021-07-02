@@ -39,9 +39,9 @@ export default function Footer(props) {
             >
                 <Box as='nav'>
                     <NavLink to='/about' label={t('pages.about')} ml={0} />
+                    <NavLink to='/editions' label={t('pages.editions')} />
                     <NavLink to='/projects' label={t('pages.projects')} />
                     <NavLink to='/contact' label={t('pages.contact')} />
-                    <NavLink to='/examples' label='Examples' />
                 </Box>
                 <HStack w='100%' mt={4} spacing={12}>
                     <Logo />

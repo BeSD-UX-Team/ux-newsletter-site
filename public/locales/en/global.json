@@ -6,6 +6,10 @@
         "projects": "Our projects"
     },
     "labels": {
-        "email-us": "Email us"
+        "email-us": "Email us",
+        "what's-inside": "What's inside this issue?",
+        "edition": "Edition",
+        "next": "next article",
+        "prev": "previous article"
     }
 }
