@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { Stack, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 
-import Container from '../components/Container';
-import ProjectCard from '../components/ProjectCard';
+import Container from '../../components/Container';
+import ProjectCard from '../../components/ProjectCard';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Projects() {
@@ -24,12 +24,19 @@ export default function Projects() {
                 justifyContent='center'
                 alignItems='flex-start'
                 m='0 20px 4rem 20px'
-                maxWidth='1220px'
+                maxWidth='1000px'
+                w='100%'
             >
                 <Flex w='100%' justifyContent='center' alignItems='flex-start'>
                     <Heading as='h1'>{t('pages.projects')}</Heading>
                 </Flex>
-                <SimpleGrid columns={3} spacing={10} minChildWidth='300px'>
+                <Flex
+                    gridColumnGap='1.5rem'
+                    gridRowGap='4rem'
+                    flexWrap='wrap'
+                    justifyContent='center'
+                    py={10}
+                >
                     <ProjectCard
                         projectName='Project X'
                         img={{ src: '/assets/map.png', alt: 'Image of Map' }}
@@ -40,7 +47,17 @@ export default function Projects() {
                         img={{ src: '/assets/map.png', alt: 'Image of Map' }}
                         to='/about'
                     />
-                </SimpleGrid>
+                    <ProjectCard
+                        projectName='Project Z'
+                        img={{ src: '/assets/map.png', alt: 'Image of Map' }}
+                        to='/about'
+                    />
+                    <ProjectCard
+                        projectName='Project W'
+                        img={{ src: '/assets/map.png', alt: 'Image of Map' }}
+                        to='/about'
+                    />
+                </Flex>
             </Stack>
         </Container>
     );

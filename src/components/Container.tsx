@@ -15,7 +15,7 @@ export default function Container({ children }) {
             <Header />
             <Flex
                 mb='4rem'
-                mx={['6%', '8%']}
+                mx={['4%', '4%']}
                 justifyContent='center'
                 alignItems='flex-start'
                 bg={bgColor[colorMode]}
