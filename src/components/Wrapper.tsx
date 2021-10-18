@@ -4,15 +4,16 @@ import { Box } from '@chakra-ui/react';
 interface WrapperProps {
     description: string;
     children: ReactNode;
+    width?: string[];
 }
 
 export default function Wrapper({
     description,
     children,
-    ...props
+    width,
 }: WrapperProps) {
     return (
-        <Box {...props}>
+        <Box width={width}>
             <Box
                 bg='gray.200'
                 fontWeight='bold'
