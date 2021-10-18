@@ -1,0 +1,116 @@
+{
+    "edition": {
+        "editionNum": 2,
+        "datePublished": "Sept 2021",
+        "articles": [
+            {
+                "title": "intro-to-ux.title",
+                "slug": "intro-to-ux",
+                "content": [
+                    [
+                        {
+                            "id": 1,
+                            "type": "normal",
+                            "body": "intro-to-ux.section-one"
+                        }
+                    ],
+                    [
+                        {
+                            "id": 2,
+                            "type": "normal",
+                            "body": "intro-to-ux.section-two-title"
+                        },
+                        {
+                            "id": 3,
+                            "type": "special-list-item",
+                            "value": 1,
+                            "body": "intro-to-ux.section-two-first"
+                        },
+                        {
+                            "id": 4,
+                            "type": "special-list-item",
+                            "value": 2,
+                            "body": "intro-to-ux.section-two-second"
+                        },
+                        {
+                            "id": 5,
+                            "type": "special-list-item",
+                            "value": 3,
+                            "body": "intro-to-ux.section-two-third"
+                        }
+                    ],
+                    [
+                        {
+                            "id": 6,
+                            "type": "normal",
+                            "body": "intro-to-ux.section-three-title"
+                        },
+                        {
+                            "id": 7,
+                            "type": "special-list-item",
+                            "value": 1,
+                            "body": "intro-to-ux.section-three-first"
+                        },
+                        {
+                            "id": 14,
+                            "type": "special-list-item",
+                            "value": 2,
+                            "body": "intro-to-ux.section-three-second"
+                        }
+                    ]
+                ],
+                "externalResources": [
+                    {
+                        "url": "www.google.com",
+                        "title": "Google Home",
+                        "source": "Google"
+                    }
+                ]
+            },
+            {
+                "title": "how-we-transformed-x.title",
+                "slug": "how-we-transformed-x",
+                "content": [
+                    [
+                        {
+                            "id": 8,
+                            "type": "normal",
+                            "body": "how-we-transformed-x.section-one"
+                        }
+                    ],
+                    [
+                        {
+                            "id": 9,
+                            "type": "normal",
+                            "body": "how-we-transformed-x.section-two"
+                        }
+                    ],
+                    [
+                        {
+                            "id": 10,
+                            "type": "normal",
+                            "body": "how-we-transformed-x.section-three.title"
+                        },
+                        {
+                            "id": 11,
+                            "type": "wrapper-item",
+                            "title": "how-we-transformed-x.section-three.first-wrapper-one",
+                            "body": "how-we-transformed-x.section-three.first-wrapper-one-body"
+                        },
+                        {
+                            "id": 12,
+                            "type": "wrapper-item",
+                            "title": "how-we-transformed-x.section-three.first-wrapper-two",
+                            "body": "how-we-transformed-x.section-three.first-wrapper-two-body"
+                        },
+                        {
+                            "id": 13,
+                            "type": "normal",
+                            "body": "how-we-transformed-x.section-three.first-content"
+                        }
+                    ]
+                ]
+            }
+        ]
+    }
+}

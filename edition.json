@@ -1,0 +1,44 @@
+{
+    "edition": {
+        "editionNum": 1,
+        "datePublished": "Jan 12, 2021",
+        "articles": [
+            {
+                "title": "Hello World",
+                "content": [
+                    {
+                        "type": "special-list-item",
+                        "value": 1,
+                        "body": "key-here"
+                    },
+                    {
+                        "type": "special-list-item",
+                        "value": 2,
+                        "body": "key-here"
+                    },
+                    {
+                        "type": "wrapper-item",
+                        "title": "key-here",
+                        "body": "key-here"
+                    },
+                    {
+                        "type": "wrapper-item",
+                        "title": "key-here",
+                        "body": "key-here"
+                    },
+                    {
+                        "type": "normal",
+                        "body": "key-here"
+                    }
+                ],
+                "externalResources": [
+                    {
+                        "url": "www.google.com",
+                        "title": "Google Home",
+                        "source": "Google"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "pages": {
+        "editions": "Les éditions",
+        "about": "Qui sommes-nous?",
+        "contact": "Contactez nous",
+        "projects": "Nos projets"
+    },
+    "labels": {
+        "email-us": "Nous-envoyez un e-mail",
+        "what's-inside": "Qu'est-ce qu'il y a dedans cet édition?",
+        "edition": "édition",
+        "next": "prochain article",
+        "prev": "article précédent"
+    }
+}

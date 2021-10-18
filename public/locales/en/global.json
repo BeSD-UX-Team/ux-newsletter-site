@@ -1,0 +1,15 @@
+{
+    "pages": {
+        "editions": "All editions",
+        "about": "About us",
+        "contact": "Contact",
+        "projects": "Our projects"
+    },
+    "labels": {
+        "email-us": "Email us",
+        "what's-inside": "What's inside this issue?",
+        "edition": "Edition",
+        "next": "next article",
+        "prev": "previous article"
+    }
+}

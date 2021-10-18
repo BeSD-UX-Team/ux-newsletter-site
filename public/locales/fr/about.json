@@ -1,0 +1,29 @@
+{
+    "what-we-do": {
+        "title": "Que faisons-nous?",
+        "body": "(french) Ut auctor, magna sit amet pulvinar facilisis, tellus"
+    },
+    "meet-the-team": {
+        "title": "Recontrez-vous notre équipe",
+        "handley": {
+            "position": "",
+            "description": ""
+        },
+        "riabtsev": {
+            "position": "",
+            "description": ""
+        },
+        "siddiqui": {
+            "position": "",
+            "description": ""
+        },
+        "lam": {
+            "position": "",
+            "description": ""
+        },
+        "zhang": {
+            "position": "",
+            "description": ""
+        }
+    }
+}
